@@ -1,0 +1,56 @@
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Barbaros İDA Yer İstasyonu Yazılımı.exe.config
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Barbaros İDA Yer İstasyonu Yazılımı.exe
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Barbaros İDA Yer İstasyonu Yazılımı.pdb
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\obj\Debug\Barbaros İDA Yer İstasyonu Yazılımı.csproj.AssemblyReference.cache
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\obj\Debug\Barbaros İDA Yer İstasyonu Yazılımı.csproj.SuggestedBindingRedirects.cache
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\obj\Debug\Barbaros_İDA_Yer_İstasyonu_Yazılımı.Form1.resources
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\obj\Debug\Barbaros_İDA_Yer_İstasyonu_Yazılımı.Properties.Resources.resources
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\obj\Debug\Barbaros İDA Yer İstasyonu Yazılımı.csproj.GenerateResource.cache
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\obj\Debug\Barbaros İDA Yer İstasyonu Yazılımı.csproj.CoreCompileInputs.cache
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\obj\Debug\Barbaros İDA Yer İstasyonu Yazılımı.exe
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\obj\Debug\Barbaros İDA Yer İstasyonu Yazılımı.pdb
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\CircularProgressBar.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\WinFormAnimation.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\CircularProgressBar.xml
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\obj\Debug\Barbaros İDA Yer İstasyonu Yazılımı.csproj.CopyComplete
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\obj\Debug\Barbaros_İDA_Yer_İstasyonu_Yazılımı.DataPanel.resources
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\EntityFramework.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\GMap.NET.Core.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\GMap.NET.WindowsForms.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\GMap.NET.WindowsPresentation.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Newtonsoft.Json.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\System.Data.SqlClient.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\System.Data.SQLite.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\EntityFramework.xml
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Newtonsoft.Json.xml
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\System.Data.SqlClient.xml
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\System.Data.SQLite.xml
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.DirectX.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.DirectXFiles.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.DirectXInit.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.Licensing.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.MathCore.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.RenderingDefinitions.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.RenderingEngine.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.RenderingEngine11.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.RenderingEngine9.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.WinForms.Charting.LightningChart.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.WinForms.SignalProcessing.SignalTools.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.WinForms.TradingCharts.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.Wpf.Charting.LightningChart.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.Wpf.ChartingMVVM.LightningChart.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.Wpf.SignalProcessing.SignalTools.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.Wpf.TradingCharts.dll
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.WinForms.Charting.LightningChart.xml
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.WinForms.SignalProcessing.SignalTools.xml
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.WinForms.TradingCharts.xml
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.Wpf.Charting.LightningChart.xml
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.Wpf.ChartingMVVM.LightningChart.xml
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.Wpf.SignalProcessing.SignalTools.xml
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.Wpf.TradingCharts.xml

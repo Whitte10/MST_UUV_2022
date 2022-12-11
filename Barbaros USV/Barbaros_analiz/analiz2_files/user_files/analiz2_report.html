@@ -1,0 +1,938 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head profile="http://www.ietf.org/rfc/rfc2731.txt">
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/javascript">//
+
+function ShowRow(strRowId, strVisibility)
+{
+if(document.compatMode && document.compatMode == "CSS1Compat" && document.documentMode && document.documentMode == "8")
+{
+document.getElementById(strRowId).style.visibility = strVisibility;
+}
+else if(navigator.product == "Gecko" && navigator.productSub && navigator.productSub > "20041010")
+{
+document.getElementById(strRowId).style.visibility = strVisibility;
+}
+else if(strVisibility == "visible")
+{
+  // If IE < 11
+  if (document.all && document.compatMode && document.compatMode == "CSS1Compat" && !window.opera) {
+    document.getElementById(strRowId).style.display = "block";
+  }
+  // Else any other browser
+  else {
+    document.getElementById(strRowId).style.display = "table-row";
+  }
+}
+else if(strVisibility == "collapse")
+  {
+  document.getElementById(strRowId).style.display = "none";
+  };
+}
+
+function HideChildRows(strRowId)
+{
+  var element;
+  element = document.getElementById(strRowId + '.expander');
+  if (element) element.style.display = "inline";
+  element = document.getElementById(strRowId + '.contractor');
+  if (element) element.style.display = "none";
+  
+  var rows = document.getElementsByTagName('tr');
+  for (i=0; i<rows.length; i++)
+  {
+    if (rows[i].id != strRowId && rows[i].id.substring(0, strRowId.length) == strRowId) 
+	{
+	  ShowRow(rows[i].id, 'collapse');
+      var element;
+      element = document.getElementById(rows[i].id + '.expander');
+      if (element) element.style.display = "inline";
+      element = document.getElementById(rows[i].id + '.contractor');
+      if (element) element.style.display = "none";
+	}
+  }
+}
+
+function ShowChildRows(strRowId)
+{
+  document.getElementById(strRowId + '.expander').style.display = "none";
+  document.getElementById(strRowId + '.contractor').style.display = "inline";
+
+  var rows = document.getElementsByTagName('tr');
+  for (i=0; i<rows.length; i++)
+  {
+    if (rows[i].id != strRowId && rows[i].id.substring(0, strRowId.length) == strRowId && rows[i].id.lastIndexOf('.') == strRowId.length)
+	{
+	  ShowRow(rows[i].id, 'visible');
+	}
+  }
+}
+
+
+function init()
+{
+//document.forms[0].reset();
+
+}
+//</script>
+<style type="text/css">
+  body
+  {
+  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+  color:#333333;
+  }
+  table
+  {
+  padding: 5px;
+  margin: 5px;
+  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse:collapse;
+  }
+  td, th
+  {
+  font-size:0.75em;
+  border:1px solid #A9A9A9;
+  padding:3px 7px 2px 7px;
+  }
+  th
+  {
+  font-weight:bold;
+  font-size:0.9em;
+  text-align:left;
+  padding-top:5px;
+  padding-bottom:4px;
+  background-color:#A9A9A9;
+  color:#ffffff;
+  }
+  div
+  {
+  margin: 5px;
+  padding: 5px;
+  }
+  .table-label
+  {
+  font-size:1em;
+  margin: 5px;
+  font-weight:bold;
+  color:#333333;
+  }
+  .section-label
+  {
+  font-size:1em;
+  margin: 5px;
+  font-weight:bold;
+  color:#333333;
+  }
+  .text-label
+  {
+  margin: 5px;
+  font-size:1em;
+  font-weight:bold;
+  color:#333333;
+  }
+  .image-label
+  {
+  font-size:1em;
+  font-weight:bold;
+  color:#333333;
+  }
+  .link-label
+  {
+  font-size:1em;
+  font-weight:bold;
+  color:#333333;
+  }
+  .section-div
+  {
+  border: 1px #A9A9A9 solid; padding: 5px; margin: 5px; overflow: auto;
+  }
+  .title-section-div
+  {
+  border: 0px #A9A9A9 solid; padding: 5px; margin: 5px; overflow: hidden;
+  text-align: left;
+  }
+  .text-div
+  {
+  border: 0px #A9A9A9 solid; padding: 5px; margin: 5px;
+  }
+  .table-div
+  {
+  border: 0px #A9A9A9 solid; padding: 5px; margin: 5px;
+  }
+  .image-div
+  {
+  border: 0px #A9A9A9 solid; padding: 0px; margin: 5px;
+  }
+  .link-div
+  {
+  border: 0px #A9A9A9 solid; padding: 5px; margin: 5px;
+  }
+  .table-cell-warning
+  {
+  background-image:url('updateRequired.png');
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position:center center;
+  }
+  .pre-notes
+  {
+  display: table-cell; 
+  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+  }
+
+</style>
+</head>
+<body onload="init();">
+<div class="title-section-div">
+    <div class="image-div" style="max-width: 100%;">
+<div style="padding: 0px; margin: 0px; border: 0px #FF0000 solid; display:inline-block; max-width: 100%;">
+<div style="padding: 0px; margin: 0px; border: 0px #A9A9A9 solid; display:inline-block; max-width: 100%; overflow: auto;">
+<img alt="" src="analiz2_report_images/AnsysReportLogo.png" border="0"></div>
+<div style="text-align: center; width: 100%"></div>
+</div>
+</div>
+    <div class="table-div">
+<span class="table-label">Summary</span>
+<br>
+<table>
+<tr>
+<td>Project:</td><td style="&#10;                    background-color:White;&#10;                    color:Black;&#10;                    font-weight:bold;&#10;                    border: 1px Navy solid;&#10;                  ">analiz2</td>
+</tr>
+<tr>
+<td>Date:</td><td style="&#10;                    background-color:White;&#10;                    color:Black;&#10;                    font-weight:bold;&#10;                    border: 1px Navy solid;&#10;                  ">13.11.2022</td>
+</tr>
+<tr>
+<td>Time:</td><td style="&#10;                    background-color:White;&#10;                    color:Black;&#10;                    font-weight:bold;&#10;                    border: 1px Navy solid;&#10;                  ">12:29:18</td>
+</tr>
+<tr>
+<td>Product Version:</td><td style="&#10;                    background-color:White;&#10;                    color:Black;&#10;                    font-weight:bold;&#10;                    border: 1px Navy solid;&#10;                  ">2022 R2</td>
+</tr>
+<tr>
+<td>Last Saved Version:</td><td style="&#10;                    background-color:White;&#10;                    color:Black;&#10;                    font-weight:bold;&#10;                    border: 1px Navy solid;&#10;                  ">2022 R2</td>
+</tr>
+</table>
+</div>
+  <hr>
+</div>
+<div class="image-div" style="max-width: 99%;">
+<div style="text-align: left; width: 100%;font-weight:bold;">Project Schematic Pane</div>
+<div style="padding: 0px; margin: 0px; border: 0px #FF0000 solid; display:inline-block; max-width: 100%;">
+<div style="padding: 0px; margin: 0px; border: 1px #A9A9A9 solid; display:inline-block; max-width: 100%; overflow: auto;">
+<img alt="Project Schematic Pane" src="analiz2_report_images/ProjectSchematic.png" border="0"></div>
+</div>
+</div>
+<div class="table-div">
+<span class="table-label">Files</span>
+<br>
+<table>
+<tr>
+<th>Name</th><th>Size</th><th>Type</th><th>Date Modified</th><th>Location</th>
+</tr>
+<tr id="N0000000044ED9440N000000003514F208">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514F208');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/generic.png">BARBAROS_ANALIZ_YARIM.step</td><td style="">90 KB</td><td style="">Geometry File</td><td style="">1.11.2022 20:29:09</td><td style="">C:\Users\akten\Desktop\MST_UUV_2022\Barbaros USV\Barbaros_analiz</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514F370">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514F370');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/generic.png">FFF.agdb</td><td style="">2 MB</td><td style="">Geometry File</td><td style="">1.11.2022 22:08:55</td><td style="">dp0\FFF\DM</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514F4D8">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514F4D8');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/Project.png">analiz2.wbpj</td><td style="">64 KB</td><td style="">Workbench Project File</td><td style="">4.11.2022 22:25:46</td><td style="">C:\Users\akten\Desktop\MST_UUV_2022\Barbaros USV\Barbaros_analiz</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514F640">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514F640');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/DefaultFile.png">act.dat</td><td style="">259 KB</td><td style="">ACT Database</td><td style="">4.11.2022 22:25:42</td><td style="">dp0</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514F7A8">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514F7A8');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/mechanical.png">FFF.mshdb</td><td style="">10 MB</td><td style="">Mesh Database File</td><td style="">1.11.2022 22:25:00</td><td style="">dp0\global\MECH</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514F910">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514F910');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/DefaultFile.png">FFF.msh</td><td style="">21 MB</td><td style="">Fluent Mesh File</td><td style="">1.11.2022 22:24:59</td><td style="">dp0\FFF\MECH</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514FA78">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514FA78');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/fluent.png">FFF.set</td><td style="">390 KB</td><td style="">FLUENT Model File</td><td style="">1.11.2022 23:08:19</td><td style="">dp0\FFF\Fluent</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514FBE0">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514FBE0');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/fluent.png">FFF-Setup-Output.cas.h5</td><td style="">14 MB</td><td style="">FLUENT Case File</td><td style="">1.11.2022 22:48:43</td><td style="">dp0\FFF\Fluent</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514FD48">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514FD48');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/fluent.png">report-file-0.out</td><td style="">6 KB</td><td style="">FLUENT Report Definitions</td><td style="">1.11.2022 23:16:10</td><td style="">dp0\FFF\Fluent</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514FEB0">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514FEB0');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/fluent.png">FFF.ip</td><td style="">42 MB</td><td style="">FLUENT Interpolation Data File</td><td style="">1.11.2022 23:16:13</td><td style="">dp0\FFF\Fluent</td>
+</tr>
+<tr id="N0000000044ED9440N0000000035150018">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N0000000035150018');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/fluent.png">SolutionMonitor.gz</td><td style="">18 KB</td><td style="">FLUENT Residual File</td><td style="">1.11.2022 23:16:11</td><td style="">dp0\FFF\Fluent</td>
+</tr>
+<tr id="N0000000044ED9440N0000000035150180">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N0000000035150180');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/fluent.png">dragforce.out</td><td style="">6 KB</td><td style="">FLUENT Report Definitions</td><td style="">1.11.2022 23:16:10</td><td style="">dp0\FFF\Fluent</td>
+</tr>
+<tr id="N0000000044ED9440N00000000351502E8">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N00000000351502E8');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/fluent.png">FFF-5.cas.h5</td><td style="">14 MB</td><td style="">FLUENT Case File</td><td style="">1.11.2022 23:18:33</td><td style="">dp0\FFF\Fluent</td>
+</tr>
+<tr id="N0000000044ED9440N0000000035150450">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N0000000035150450');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/fluent.png">FFF-5-00300.dat.h5</td><td style="">76 MB</td><td style="">FLUENT Data File</td><td style="">1.11.2022 23:17:36</td><td style="">dp0\FFF\Fluent</td>
+</tr>
+<tr id="N0000000044ED9440N00000000351505B8">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N00000000351505B8');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/CFDPost.png">Fluid Flow Fluent.cst</td><td style="">54 KB</td><td style="">CFD-Post State File</td><td style="">1.11.2022 23:36:07</td><td style="">dp0\FFF\Post</td>
+</tr>
+<tr id="N0000000044ED9440N0000000035150720">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N0000000035150720');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/generic.png">FFF-1.agdb</td><td style="">2 MB</td><td style="">Geometry File</td><td style="">1.11.2022 22:08:55</td><td style="">dp0\FFF-1\DM</td>
+</tr>
+<tr id="N0000000044ED9440N0000000035150888">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N0000000035150888');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/DefaultFile.png">FFF-1.msh</td><td style="">21 MB</td><td style="">Fluent Mesh File</td><td style="">1.11.2022 22:24:59</td><td style="">dp0\FFF-1\MECH</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514D0C0">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514D0C0');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/mechanical.png">FFF-1.mshdb</td><td style="">10 MB</td><td style="">Mesh Database File</td><td style="">2.11.2022 23:12:33</td><td style="">dp0\global\MECH</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514D228">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514D228');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/fluent.png">dragforce.out</td><td style="">4 KB</td><td style="">FLUENT Report Definitions</td><td style="">2.11.2022 23:26:42</td><td style="">dp0\FFF-1\Fluent</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514D390">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514D390');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/fluent.png">FFF-Setup-Output.cas.h5</td><td style="">14 MB</td><td style="">FLUENT Case File</td><td style="">1.11.2022 22:48:43</td><td style="">dp0\FFF-1\Fluent</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514D4F8">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514D4F8');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/CFDPost.png">Fluid Flow Fluent.cst</td><td style="">55 KB</td><td style="">CFD-Post State File</td><td style="">4.11.2022 22:25:34</td><td style="">dp0\FFF-1\Post</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514D660">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514D660');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/fluent.png">FFF-1.set</td><td style="">391 KB</td><td style="">FLUENT Model File</td><td style="">2.11.2022 23:20:10</td><td style="">dp0\FFF-1\Fluent</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514D7C8">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514D7C8');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/fluent.png">report-file-0.out</td><td style="">4 KB</td><td style="">FLUENT Report Definitions</td><td style="">2.11.2022 23:26:42</td><td style="">dp0\FFF-1\Fluent</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514D930">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514D930');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/fluent.png">force-rfile.out</td><td style="">4 KB</td><td style="">FLUENT Report Definitions</td><td style="">2.11.2022 23:26:42</td><td style="">dp0\FFF-1\Fluent</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514DA98">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514DA98');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/fluent.png">FFF-1.ip</td><td style="">42 MB</td><td style="">FLUENT Interpolation Data File</td><td style="">2.11.2022 23:26:45</td><td style="">dp0\FFF-1\Fluent</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514DC00">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514DC00');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/fluent.png">SolutionMonitor.gz</td><td style="">12 KB</td><td style="">FLUENT Residual File</td><td style="">2.11.2022 23:26:42</td><td style="">dp0\FFF-1\Fluent</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514DD68">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514DD68');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/fluent.png">FFF-1-1.cas.h5</td><td style="">14 MB</td><td style="">FLUENT Case File</td><td style="">3.11.2022 00:01:15</td><td style="">dp0\FFF-1\Fluent</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514DED0">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514DED0');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/fluent.png">FFF-1-1-00200.dat.h5</td><td style="">67 MB</td><td style="">FLUENT Data File</td><td style="">3.11.2022 00:01:19</td><td style="">dp0\FFF-1\Fluent</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514E038">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514E038');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/fluent.png">report-def-0-rfile.out</td><td style="">4 KB</td><td style="">FLUENT Surface Monitors</td><td style="">1.11.2022 22:53:56</td><td style="">dp0\FFF\Fluent</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514E1A0">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514E1A0');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/DesignPoint.png">designPoint.wbdp</td><td style="">82 KB</td><td style="">Workbench Design Point File</td><td style="">4.11.2022 22:25:46</td><td style="">dp0</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514E308">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514E308');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/DefaultFile.png">contour-1.png</td><td style="">105 KB</td><td style="">.png</td><td style="">1.11.2022 22:53:59</td><td style="">progress_files\dp0\FFF\Fluent</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514E470">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514E470');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/DefaultFile.png">contour-2.png</td><td style="">101 KB</td><td style="">.png</td><td style="">1.11.2022 23:16:12</td><td style="">progress_files\dp0\FFF\Fluent</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514E5D8">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514E5D8');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/DefaultFile.png">report.xml</td><td style="">9 KB</td><td style="">.xml</td><td style="">1.11.2022 23:08:19</td><td style="">progress_files\dp0\FFF\Fluent</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514E740">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514E740');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/DefaultFile.png">contour-2.png</td><td style="">100 KB</td><td style="">.png</td><td style="">2.11.2022 23:26:45</td><td style="">progress_files\dp0\FFF-1\Fluent</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514E8A8">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514E8A8');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/DefaultFile.png">report.xml</td><td style="">9 KB</td><td style="">.xml</td><td style="">2.11.2022 23:20:10</td><td style="">progress_files\dp0\FFF-1\Fluent</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514EA10">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514EA10');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/DefaultFile.png">AnsysReportLogo.png</td><td style="">5 KB</td><td style="">.png</td><td style="">13.05.2022 21:01:49</td><td style="">user_files\analiz2_report_images</td>
+</tr>
+<tr id="N0000000044ED9440N000000003514EB78">
+<td style="&#10;            padding-left: 40px; text-indent: -35px;&#10;        "><img style="display: inline; margin-right: 5px;" height="1" width="9" src="analiz2_report_images/spacer.gif" onclick="javascript:HideChildRows('N0000000044ED9440N000000003514EB78');"><img style="display: inline; margin-right: 5px; vertical-align: middle;" src="analiz2_report_images/DefaultFile.png">ProjectSchematic.png</td><td style="">15 KB</td><td style="">.png</td><td style="">13.11.2022 12:29:19</td><td style="">user_files\analiz2_report_images</td>
+</tr>
+</table>
+</div>
+<div class="section-div">
+<span class="section-label">FFF : Solution : dp0</span>
+<br>
+    <div class="text-div">
+<div style="margin: 5px;">
+<pre>
+
+
+Fluent
+Version: 3d, dp, pbns, vof, ske (3d, double precision, pressure-based, VOF, standard k-epsilon)
+Release: 22.2.0
+Title:
+
+
+Models
+------
+
+   Model                        Settings                              
+   ----------------------------------------------------------------
+   Space                        3D                                    
+   Time                         Steady                                
+   Viscous                      Standard k-epsilon turbulence model   
+   Wall Treatment               Standard Wall Functions               
+   Heat Transfer                Disabled                              
+   Solidification and Melting   Disabled                              
+   Species                      Disabled                              
+   Coupled Dispersed Phase      Disabled                              
+   NOx Pollutants               Disabled                              
+   SOx Pollutants               Disabled                              
+   Soot                         Disabled                              
+   Mercury Pollutants           Disabled                              
+   Structure                    Disabled                              
+   Acoustics                    Disabled                              
+   Eulerian Wall Film           Disabled                              
+   Potential/Li-ion Battery     Disabled                              
+   Multiphase                   Volume of Fluid
+
+
+Material Properties
+-------------------
+
+   Material: water-liquid (fluid)
+
+      Property               Units      Method     Value(s)   
+      -----------------------------------------------------
+      Density                kg/m^3     constant   998.2      
+      Cp (Specific Heat)     J/(kg K)   constant   4182       
+      Thermal Conductivity   W/(m K)    constant   0.6        
+      Viscosity              kg/(m s)   constant   0.001003   
+      Molecular Weight       kg/kmol    constant   18.0152    
+
+   Material: air (fluid)
+
+      Property               Units      Method     Value(s)     
+      -------------------------------------------------------
+      Density                kg/m^3     constant   1.225        
+      Cp (Specific Heat)     J/(kg K)   constant   1006.43      
+      Thermal Conductivity   W/(m K)    constant   0.0242       
+      Viscosity              kg/(m s)   constant   1.7894e-05   
+      Molecular Weight       kg/kmol    constant   28.966       
+
+   Material: aluminum (solid)
+
+      Property               Units      Method     Value(s)   
+      -----------------------------------------------------
+      Density                kg/m^3     constant   2719       
+      Cp (Specific Heat)     J/(kg K)   constant   871        
+      Thermal Conductivity   W/(m K)    constant   202.4
+
+
+Cell Zone Conditions
+--------------------
+
+   Zones
+
+      name              id   type    
+      ----------------------------
+      solid (mixture)   3    fluid   
+      solid (phase-1)   3    fluid   
+      solid (phase-2)   3    fluid   
+
+   Setup Conditions
+
+      solid (mixture)
+
+         Condition       Value   
+         ---------------------
+         Frame Motion?   no      
+
+      solid (phase-1)
+
+         Condition   Value   
+         -----------------
+
+      solid (phase-2)
+
+         Condition   Value   
+         -----------------
+
+
+Boundary Conditions
+-------------------
+
+   Zones
+
+      name                   id   type              
+      -------------------------------------------
+      inlet (mixture)        6    pressure-inlet    
+      inlet (phase-1)        6    pressure-inlet    
+      inlet (phase-2)        6    pressure-inlet    
+      wall-solid (mixture)   1    wall              
+      wall-solid (phase-1)   1    wall              
+      wall-solid (phase-2)   1    wall              
+      outlet (mixture)       7    pressure-outlet   
+      outlet (phase-1)       7    pressure-outlet   
+      outlet (phase-2)       7    pressure-outlet   
+      symetry (mixture)      8    symmetry          
+      symetry (phase-1)      8    symmetry          
+      symetry (phase-2)      8    symmetry          
+      hull (mixture)         9    wall              
+      hull (phase-1)         9    wall              
+      hull (phase-2)         9    wall              
+
+   Setup Conditions
+
+      inlet (mixture)
+
+         Condition                  Value    
+         ---------------------------------
+         Open Channel               yes      
+         Free Surface Level [m]     0.15     
+         Velocity Magnitude [m/s]   1.5433   
+         Bottom Level [m]           -0.75    
+
+      inlet (phase-1)
+
+         Condition   Value   
+         -----------------
+
+      inlet (phase-2)
+
+         Condition   Value   
+         -----------------
+
+      wall-solid (mixture)
+
+         Condition                  Value             
+         ------------------------------------------
+         Wall Motion                Stationary Wall   
+         Shear Boundary Condition   No Slip           
+
+      wall-solid (phase-1)
+
+         Condition   Value   
+         -----------------
+
+      wall-solid (phase-2)
+
+         Condition   Value   
+         -----------------
+
+      outlet (mixture)
+
+         Condition                Value   
+         ------------------------------
+         Open Channel             yes     
+         Free Surface Level [m]   0.15    
+         Bottom Level [m]         -0.75   
+
+      outlet (phase-1)
+
+         Condition   Value   
+         -----------------
+
+      outlet (phase-2)
+
+         Condition   Value   
+         -----------------
+
+      symetry (mixture)
+
+         Condition   Value   
+         -----------------
+
+      symetry (phase-1)
+
+         Condition   Value   
+         -----------------
+
+      symetry (phase-2)
+
+         Condition   Value   
+         -----------------
+
+      hull (mixture)
+
+         Condition                  Value             
+         ------------------------------------------
+         Wall Motion                Stationary Wall   
+         Shear Boundary Condition   No Slip           
+
+      hull (phase-1)
+
+         Condition   Value   
+         -----------------
+
+      hull (phase-2)
+
+         Condition   Value   
+         -----------------
+
+
+Solver Settings
+---------------
+
+   Equations
+
+      Equation          Solved   
+      ------------------------
+      Flow              yes      
+      Volume Fraction   yes      
+      Turbulence        yes      
+
+   Numerics
+
+      Numeric                         Enabled   
+      ---------------------------------------
+      Absolute Velocity Formulation   yes       
+
+   Pseudo Time Explicit Relaxation Factors
+
+      Variable                     Relaxation Factor   
+      ----------------------------------------------
+      Density                      1                   
+      Body Forces                  1                   
+      Volume Fraction              0.5                 
+      Turbulent Kinetic Energy     0.75                
+      Turbulent Dissipation Rate   0.75                
+      Turbulent Viscosity          1                   
+      Explicit Momentum            0.5                 
+      Explicit Pressure            0.5                 
+
+   Linear Solver
+
+      Variable                     Solver Type   Termination Criterion   Residual Reduction Tolerance   
+      -----------------------------------------------------------------------------------------------
+      Flow                         F-Cycle       0.1                                                    
+      Volume Fraction              F-Cycle       0.1                                                    
+      Turbulent Kinetic Energy     F-Cycle       0.1                                                    
+      Turbulent Dissipation Rate   F-Cycle       0.1                                                    
+
+   Pressure-Velocity Coupling
+
+      Parameter                               Value     
+      -----------------------------------------------
+      Type                                    Coupled   
+      Pseudo Time Method (Global Time Step)   yes       
+
+   Discretization Scheme
+
+      Variable                     Scheme                
+      ------------------------------------------------
+      Pressure                     PRESTO!               
+      Momentum                     Second Order Upwind   
+      Volume Fraction              Compressive           
+      Turbulent Kinetic Energy     First Order Upwind    
+      Turbulent Dissipation Rate   First Order Upwind    
+
+   Solution Limits
+
+      Quantity                         Limit    
+      ---------------------------------------
+      Minimum Absolute Pressure        1        
+      Maximum Absolute Pressure        5e+10    
+      Minimum Temperature              1        
+      Maximum Temperature              5000     
+      Minimum Turb. Kinetic Energy     1e-14    
+      Minimum Turb. Dissipation Rate   1e-20    
+      Maximum Turb. Viscosity Ratio    100000
+
+
+</pre>
+</div>
+</div>
+    <div class="image-div" style="max-width: 99%;">
+<div style="text-align: left; width: 100%;font-weight:bold;">contour-1.png</div>
+<div style="padding: 0px; margin: 0px; border: 0px #FF0000 solid; display:inline-block; max-width: 100%;">
+<div style="padding: 0px; margin: 0px; border: 1px #A9A9A9 solid; display:inline-block; max-width: 100%; overflow: auto;">
+<img alt="contour-1.png" src="analiz2_report_images/FluentObjects/dp0/FFF/contour-1.png" border="0"></div>
+</div>
+</div>
+    <div class="image-div" style="max-width: 99%;">
+<div style="text-align: left; width: 100%;font-weight:bold;">contour-2.png</div>
+<div style="padding: 0px; margin: 0px; border: 0px #FF0000 solid; display:inline-block; max-width: 100%;">
+<div style="padding: 0px; margin: 0px; border: 1px #A9A9A9 solid; display:inline-block; max-width: 100%; overflow: auto;">
+<img alt="contour-2.png" src="analiz2_report_images/FluentObjects/dp0/FFF/contour-2.png" border="0"></div>
+</div>
+</div>
+  </div>
+<div class="section-div">
+<span class="section-label">FFF-1 : Solution : dp0</span>
+<br>
+    <div class="text-div">
+<div style="margin: 5px;">
+<pre>
+
+
+Fluent
+Version: 3d, dp, pbns, vof, ske (3d, double precision, pressure-based, VOF, standard k-epsilon)
+Release: 22.2.0
+Title:
+
+
+Models
+------
+
+   Model                        Settings                              
+   ----------------------------------------------------------------
+   Space                        3D                                    
+   Time                         Steady                                
+   Viscous                      Standard k-epsilon turbulence model   
+   Wall Treatment               Standard Wall Functions               
+   Heat Transfer                Disabled                              
+   Solidification and Melting   Disabled                              
+   Species                      Disabled                              
+   Coupled Dispersed Phase      Disabled                              
+   NOx Pollutants               Disabled                              
+   SOx Pollutants               Disabled                              
+   Soot                         Disabled                              
+   Mercury Pollutants           Disabled                              
+   Structure                    Disabled                              
+   Acoustics                    Disabled                              
+   Eulerian Wall Film           Disabled                              
+   Potential/Li-ion Battery     Disabled                              
+   Multiphase                   Volume of Fluid
+
+
+Material Properties
+-------------------
+
+   Material: water-liquid (fluid)
+
+      Property               Units      Method     Value(s)   
+      -----------------------------------------------------
+      Density                kg/m^3     constant   998.2      
+      Cp (Specific Heat)     J/(kg K)   constant   4182       
+      Thermal Conductivity   W/(m K)    constant   0.6        
+      Viscosity              kg/(m s)   constant   0.001003   
+      Molecular Weight       kg/kmol    constant   18.0152    
+
+   Material: air (fluid)
+
+      Property               Units      Method     Value(s)     
+      -------------------------------------------------------
+      Density                kg/m^3     constant   1.225        
+      Cp (Specific Heat)     J/(kg K)   constant   1006.43      
+      Thermal Conductivity   W/(m K)    constant   0.0242       
+      Viscosity              kg/(m s)   constant   1.7894e-05   
+      Molecular Weight       kg/kmol    constant   28.966       
+
+   Material: aluminum (solid)
+
+      Property               Units      Method     Value(s)   
+      -----------------------------------------------------
+      Density                kg/m^3     constant   2719       
+      Cp (Specific Heat)     J/(kg K)   constant   871        
+      Thermal Conductivity   W/(m K)    constant   202.4
+
+
+Cell Zone Conditions
+--------------------
+
+   Zones
+
+      name              id   type    
+      ----------------------------
+      solid (mixture)   3    fluid   
+      solid (phase-1)   3    fluid   
+      solid (phase-2)   3    fluid   
+
+   Setup Conditions
+
+      solid (mixture)
+
+         Condition       Value   
+         ---------------------
+         Frame Motion?   no      
+
+      solid (phase-1)
+
+         Condition   Value   
+         -----------------
+
+      solid (phase-2)
+
+         Condition   Value   
+         -----------------
+
+
+Boundary Conditions
+-------------------
+
+   Zones
+
+      name                   id   type              
+      -------------------------------------------
+      inlet (mixture)        6    pressure-inlet    
+      inlet (phase-1)        6    pressure-inlet    
+      inlet (phase-2)        6    pressure-inlet    
+      wall-solid (mixture)   1    wall              
+      wall-solid (phase-1)   1    wall              
+      wall-solid (phase-2)   1    wall              
+      outlet (mixture)       7    pressure-outlet   
+      outlet (phase-1)       7    pressure-outlet   
+      outlet (phase-2)       7    pressure-outlet   
+      symetry (mixture)      8    symmetry          
+      symetry (phase-1)      8    symmetry          
+      symetry (phase-2)      8    symmetry          
+      hull (mixture)         9    wall              
+      hull (phase-1)         9    wall              
+      hull (phase-2)         9    wall              
+
+   Setup Conditions
+
+      inlet (mixture)
+
+         Condition                  Value   
+         --------------------------------
+         Open Channel               yes     
+         Free Surface Level [m]     0.15    
+         Velocity Magnitude [m/s]   10      
+         Bottom Level [m]           -0.75   
+
+      inlet (phase-1)
+
+         Condition   Value   
+         -----------------
+
+      inlet (phase-2)
+
+         Condition   Value   
+         -----------------
+
+      wall-solid (mixture)
+
+         Condition                  Value             
+         ------------------------------------------
+         Wall Motion                Stationary Wall   
+         Shear Boundary Condition   No Slip           
+
+      wall-solid (phase-1)
+
+         Condition   Value   
+         -----------------
+
+      wall-solid (phase-2)
+
+         Condition   Value   
+         -----------------
+
+      outlet (mixture)
+
+         Condition                Value   
+         ------------------------------
+         Open Channel             yes     
+         Free Surface Level [m]   0.15    
+         Bottom Level [m]         -0.75   
+
+      outlet (phase-1)
+
+         Condition   Value   
+         -----------------
+
+      outlet (phase-2)
+
+         Condition   Value   
+         -----------------
+
+      symetry (mixture)
+
+         Condition   Value   
+         -----------------
+
+      symetry (phase-1)
+
+         Condition   Value   
+         -----------------
+
+      symetry (phase-2)
+
+         Condition   Value   
+         -----------------
+
+      hull (mixture)
+
+         Condition                  Value             
+         ------------------------------------------
+         Wall Motion                Stationary Wall   
+         Shear Boundary Condition   No Slip           
+
+      hull (phase-1)
+
+         Condition   Value   
+         -----------------
+
+      hull (phase-2)
+
+         Condition   Value   
+         -----------------
+
+
+Solver Settings
+---------------
+
+   Equations
+
+      Equation          Solved   
+      ------------------------
+      Flow              yes      
+      Volume Fraction   yes      
+      Turbulence        yes      
+
+   Numerics
+
+      Numeric                         Enabled   
+      ---------------------------------------
+      Absolute Velocity Formulation   yes       
+
+   Pseudo Time Explicit Relaxation Factors
+
+      Variable                     Relaxation Factor   
+      ----------------------------------------------
+      Density                      1                   
+      Body Forces                  1                   
+      Volume Fraction              0.5                 
+      Turbulent Kinetic Energy     0.75                
+      Turbulent Dissipation Rate   0.75                
+      Turbulent Viscosity          1                   
+      Explicit Momentum            0.5                 
+      Explicit Pressure            0.5                 
+
+   Linear Solver
+
+      Variable                     Solver Type   Termination Criterion   Residual Reduction Tolerance   
+      -----------------------------------------------------------------------------------------------
+      Flow                         F-Cycle       0.1                                                    
+      Volume Fraction              F-Cycle       0.1                                                    
+      Turbulent Kinetic Energy     F-Cycle       0.1                                                    
+      Turbulent Dissipation Rate   F-Cycle       0.1                                                    
+
+   Pressure-Velocity Coupling
+
+      Parameter                               Value     
+      -----------------------------------------------
+      Type                                    Coupled   
+      Pseudo Time Method (Global Time Step)   yes       
+
+   Discretization Scheme
+
+      Variable                     Scheme                
+      ------------------------------------------------
+      Pressure                     PRESTO!               
+      Momentum                     Second Order Upwind   
+      Volume Fraction              Compressive           
+      Turbulent Kinetic Energy     First Order Upwind    
+      Turbulent Dissipation Rate   First Order Upwind    
+
+   Solution Limits
+
+      Quantity                         Limit    
+      ---------------------------------------
+      Minimum Absolute Pressure        1        
+      Maximum Absolute Pressure        5e+10    
+      Minimum Temperature              1        
+      Maximum Temperature              5000     
+      Minimum Turb. Kinetic Energy     1e-14    
+      Minimum Turb. Dissipation Rate   1e-20    
+      Maximum Turb. Viscosity Ratio    100000
+
+
+</pre>
+</div>
+</div>
+    <div class="image-div" style="max-width: 99%;">
+<div style="text-align: left; width: 100%;font-weight:bold;">contour-2.png</div>
+<div style="padding: 0px; margin: 0px; border: 0px #FF0000 solid; display:inline-block; max-width: 100%;">
+<div style="padding: 0px; margin: 0px; border: 1px #A9A9A9 solid; display:inline-block; max-width: 100%; overflow: auto;">
+<img alt="contour-2.png" src="analiz2_report_images/FluentObjects/dp0/FFF-1/contour-2.png" border="0"></div>
+</div>
+</div>
+  </div>
+<br>
+</body>
+</html>
