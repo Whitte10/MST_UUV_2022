@@ -99,19 +99,23 @@ namespace Barbaros_İDA_Yer_İstasyonu_Yazılımı
         private void Rota_Belirleme_Button_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
+            OpenChildForm(new Rota());
         }
         private void button_manuelmod_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
+            OpenChildForm(new ManuelMode());
         }
         private void Ayarlar_Button_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
+            OpenChildForm(new Ayarlar());
         }
 
         private void Gelistirici_Ekip_Button_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
+            OpenChildForm(new Gelistirici());
         }
         //Drag Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]

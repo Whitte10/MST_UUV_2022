@@ -54,3 +54,7 @@ C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Bar
 C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.Wpf.ChartingMVVM.LightningChart.xml
 C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.Wpf.SignalProcessing.SignalTools.xml
 C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\bin\Debug\Arction.Wpf.TradingCharts.xml
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\obj\Debug\Barbaros_İDA_Yer_İstasyonu_Yazılımı.Gelistirici.resources
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\obj\Debug\Barbaros_İDA_Yer_İstasyonu_Yazılımı.Rota.resources
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\obj\Debug\Barbaros_İDA_Yer_İstasyonu_Yazılımı.ManuelMode.resources
+C:\Users\akten\Desktop\MST_UUV_2022\Barbaros İDA Yer İstasyonu Yazılımı\Barbaros İDA Yer İstasyonu Yazılımı\obj\Debug\Barbaros_İDA_Yer_İstasyonu_Yazılımı.Ayarlar.resources

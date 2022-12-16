@@ -93,9 +93,29 @@ namespace Barbaros_İDA_Yer_İstasyonu_Yazılımı.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Otonom {
+            get {
+                object obj = ResourceManager.GetObject("Otonom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap technical_support {
             get {
                 object obj = ResourceManager.GetObject("technical-support", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Xbox {
+            get {
+                object obj = ResourceManager.GetObject("Xbox", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

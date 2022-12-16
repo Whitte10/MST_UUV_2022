@@ -32,20 +32,20 @@
             this.Panel_Menu = new System.Windows.Forms.Panel();
             this.button_manuelmod = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button_Gelistirici_Ekip = new System.Windows.Forms.Button();
             this.button_Ayarlar = new System.Windows.Forms.Button();
             this.button_Rota_Belirleme = new System.Windows.Forms.Button();
             this.button_Veri_Panel = new System.Windows.Forms.Button();
             this.Panel_Title = new System.Windows.Forms.Panel();
-            this.button_menu_pannel = new System.Windows.Forms.Button();
             this.Title = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.Panel_Shadow = new System.Windows.Forms.Panel();
             this.panel_Desktop = new System.Windows.Forms.Panel();
+            this.button_menu_pannel = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Panel_Menu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Panel_Title.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel_Menu
@@ -76,6 +76,7 @@
             this.button_manuelmod.Size = new System.Drawing.Size(235, 60);
             this.button_manuelmod.TabIndex = 7;
             this.button_manuelmod.Text = "Manuel Kontrol";
+            this.button_manuelmod.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_manuelmod.UseVisualStyleBackColor = false;
             this.button_manuelmod.Click += new System.EventHandler(this.button_manuelmod_Click);
             // 
@@ -86,16 +87,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(235, 121);
             this.panel3.TabIndex = 6;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(172, 545);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(57, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
             // 
             // button_Gelistirici_Ekip
             // 
@@ -109,6 +100,7 @@
             this.button_Gelistirici_Ekip.Size = new System.Drawing.Size(235, 60);
             this.button_Gelistirici_Ekip.TabIndex = 5;
             this.button_Gelistirici_Ekip.Text = "Geliştirici Ekip";
+            this.button_Gelistirici_Ekip.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_Gelistirici_Ekip.UseVisualStyleBackColor = false;
             this.button_Gelistirici_Ekip.Click += new System.EventHandler(this.Gelistirici_Ekip_Button_Click);
             // 
@@ -125,6 +117,7 @@
             this.button_Ayarlar.Size = new System.Drawing.Size(235, 60);
             this.button_Ayarlar.TabIndex = 4;
             this.button_Ayarlar.Text = "Ayarlar";
+            this.button_Ayarlar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_Ayarlar.UseVisualStyleBackColor = false;
             this.button_Ayarlar.Click += new System.EventHandler(this.Ayarlar_Button_Click);
             // 
@@ -140,6 +133,7 @@
             this.button_Rota_Belirleme.Size = new System.Drawing.Size(235, 60);
             this.button_Rota_Belirleme.TabIndex = 3;
             this.button_Rota_Belirleme.Text = "Rota Belirleme";
+            this.button_Rota_Belirleme.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_Rota_Belirleme.UseVisualStyleBackColor = false;
             this.button_Rota_Belirleme.Click += new System.EventHandler(this.Rota_Belirleme_Button_Click);
             // 
@@ -155,6 +149,7 @@
             this.button_Veri_Panel.Size = new System.Drawing.Size(235, 60);
             this.button_Veri_Panel.TabIndex = 2;
             this.button_Veri_Panel.Text = "Veri Paneli";
+            this.button_Veri_Panel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_Veri_Panel.UseVisualStyleBackColor = false;
             this.button_Veri_Panel.Click += new System.EventHandler(this.Veri_Panel_Button_Click);
             // 
@@ -170,27 +165,14 @@
             this.Panel_Title.TabIndex = 2;
             this.Panel_Title.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
-            // button_menu_pannel
-            // 
-            this.button_menu_pannel.BackColor = System.Drawing.Color.Transparent;
-            this.button_menu_pannel.FlatAppearance.BorderSize = 0;
-            this.button_menu_pannel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_menu_pannel.Image = global::Barbaros_İDA_Yer_İstasyonu_Yazılımı.Properties.Resources.more_2_fill;
-            this.button_menu_pannel.Location = new System.Drawing.Point(241, 25);
-            this.button_menu_pannel.Name = "button_menu_pannel";
-            this.button_menu_pannel.Size = new System.Drawing.Size(28, 35);
-            this.button_menu_pannel.TabIndex = 0;
-            this.button_menu_pannel.UseVisualStyleBackColor = false;
-            this.button_menu_pannel.Click += new System.EventHandler(this.button_menu_pannel_Click);
-            // 
             // Title
             // 
             this.Title.AutoSize = true;
-            this.Title.Font = new System.Drawing.Font("Matura MT Script Capitals", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Title.Font = new System.Drawing.Font("SamsungOneUIKorean", 33F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(30)))), ((int)(((byte)(80)))));
-            this.Title.Location = new System.Drawing.Point(824, 28);
+            this.Title.Location = new System.Drawing.Point(780, 17);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(297, 26);
+            this.Title.Size = new System.Drawing.Size(606, 51);
             this.Title.TabIndex = 0;
             this.Title.Text = "Barbaros İDA Yer İstasyonu ";
             this.Title.Click += new System.EventHandler(this.Title_Click);
@@ -213,6 +195,29 @@
             this.panel_Desktop.Size = new System.Drawing.Size(1669, 955);
             this.panel_Desktop.TabIndex = 4;
             // 
+            // button_menu_pannel
+            // 
+            this.button_menu_pannel.BackColor = System.Drawing.Color.Transparent;
+            this.button_menu_pannel.FlatAppearance.BorderSize = 0;
+            this.button_menu_pannel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_menu_pannel.Image = global::Barbaros_İDA_Yer_İstasyonu_Yazılımı.Properties.Resources.more_2_fill;
+            this.button_menu_pannel.Location = new System.Drawing.Point(241, 25);
+            this.button_menu_pannel.Name = "button_menu_pannel";
+            this.button_menu_pannel.Size = new System.Drawing.Size(28, 35);
+            this.button_menu_pannel.TabIndex = 0;
+            this.button_menu_pannel.UseVisualStyleBackColor = false;
+            this.button_menu_pannel.Click += new System.EventHandler(this.button_menu_pannel_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(172, 545);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(57, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,9 +233,9 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Panel_Menu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Panel_Title.ResumeLayout(false);
             this.Panel_Title.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -243,13 +248,13 @@
         private System.Windows.Forms.Button button_Rota_Belirleme;
         private System.Windows.Forms.Panel Panel_Title;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label Title;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Panel Panel_Shadow;
         private System.Windows.Forms.Panel panel_Desktop;
         private System.Windows.Forms.Button button_menu_pannel;
         private System.Windows.Forms.Button button_manuelmod;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

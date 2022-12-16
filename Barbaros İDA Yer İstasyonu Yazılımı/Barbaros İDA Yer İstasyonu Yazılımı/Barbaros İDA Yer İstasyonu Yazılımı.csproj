@@ -143,6 +143,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ayarlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ayarlar.Designer.cs">
+      <DependentUpon>Ayarlar.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataPanel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,13 +161,40 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gelistirici.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gelistirici.Designer.cs">
+      <DependentUpon>Gelistirici.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManuelMode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManuelMode.Designer.cs">
+      <DependentUpon>ManuelMode.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rota.Designer.cs">
+      <DependentUpon>Rota.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Ayarlar.resx">
+      <DependentUpon>Ayarlar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DataPanel.resx">
       <DependentUpon>DataPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gelistirici.resx">
+      <DependentUpon>Gelistirici.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManuelMode.resx">
+      <DependentUpon>ManuelMode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -173,6 +206,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Rota.resx">
+      <DependentUpon>Rota.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -198,6 +234,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\more-2-fill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Otonom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Xbox.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
