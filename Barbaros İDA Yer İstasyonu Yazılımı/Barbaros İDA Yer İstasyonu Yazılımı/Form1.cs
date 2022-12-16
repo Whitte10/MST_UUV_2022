@@ -35,14 +35,15 @@ namespace Barbaros_İDA_Yer_İstasyonu_Yazılımı
             public static Color color4 = Color.FromArgb( 95,  77, 221);
             public static Color color5 = Color.FromArgb(249,  88, 155);
             public static Color color6 = Color.FromArgb( 24, 161, 251);
+            
         }
         private struct ThemeColor
         {
             public static Color buttoncolor = Color.FromArgb(24, 30, 54);
             public static Color MenuPanelColor = Color.FromArgb(24, 30, 54);
             public static Color buttonforecolor = Color.FromArgb(253, 138, 114);
-            public static Color MainPanelColor = Color.FromArgb(95, 77, 221);
-            public static Color SubPanelColor = Color.FromArgb(249, 88, 155);
+            public static Color MainPanelColor = Color.FromArgb(34, 33, 74);
+            public static Color SubPanelColor = Color.FromArgb(40, 45, 82);
             public static Color BackgroundPanel = Color.FromArgb(24, 161, 251);
         }
         private void ActivateButton(object senderBtn, Color color)
