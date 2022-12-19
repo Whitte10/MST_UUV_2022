@@ -1,0 +1,2083 @@
+# encoding: utf-8
+# 2022 R2
+SetScriptVersion(Version="22.2.192")
+template1 = GetTemplate(TemplateName="Fluid Flow")
+system1 = template1.CreateSystem()
+geometry1 = system1.GetContainer(ComponentName="Geometry")
+geometry1.Edit()
+geometry1.Exit()
+geometry1.Edit()
+Save(Overwrite=True)
+meshComponent1 = system1.GetComponent(Name="Mesh")
+meshComponent1.Refresh()
+mesh1 = system1.GetContainer(ComponentName="Mesh")
+mesh1.Edit()
+mesh1.Exit()
+geometry1.Edit()
+geometry1.Edit()
+Save(Overwrite=True)
+geometry1.Exit()
+meshComponent1.Refresh()
+mesh1.Edit()
+mesh1.Exit()
+geometry1.Edit()
+Save(Overwrite=True)
+geometry1.Exit()
+meshComponent1.Refresh()
+mesh1.Edit()
+Save(Overwrite=True)
+mesh1.Exit()
+meshComponent1.Update(AllDependencies=True)
+setupComponent1 = system1.GetComponent(Name="Setup")
+setupComponent1.Refresh()
+setup1 = system1.GetContainer(ComponentName="Setup")
+fluentLauncherSettings1 = setup1.GetFluentLauncherSettings()
+fluentLauncherSettings1.SetEntityProperties(Properties=Set(Precision="Double", EnvPath={}, RunParallel=True, NumberOfProcessorsMeshing=4, NumberOfProcessors=4))
+setup1.Edit()
+setup1.SendCommand(Command='(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 0)(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 1)')
+setup1.SendCommand(Command='(%py-exec "preferences.fixState()")')
+setup1.SendCommand(Command="(%py-exec \"preferences.setState({r'Appearance': None,r'GPUApp': None,r'General': None,r'Graphics': None,r'MatProApp': None,r'MeshingWorkflow': None,r'Navigation': None,r'PrjApp': None,r'Simulation': None,r'TurboWorkflow': None,})\")")
+setup1.SendCommand(Command='/file/set-tui-version "22.2"(cx-gui-do cx-activate-item "Key Behavioral Changes*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(%py-exec "preferences.General.KeyBehavioralChangesMessage.setState(True)")')
+setup1.SendCommand(Command="(cx-use-window-id 51)(cx-set-camera-relative '(3.20361 -8.2272 1.7475) '(0 0 0) '(0.493345 0.292226 0.464072) 0 0)(cx-use-window-id 51)(cx-set-camera-relative '(2.76109 1.17132 -7.8013) '(0 0 0) '(-0.11448 -0.0380168 0.283326) 0 0)(cx-use-window-id 51)(cx-set-camera-relative '(-14.8075 -7.58508 -10.1185) '(0 0 0) '(1.04244 -0.796787 -0.599736) 0 0)(cx-use-window-id 51)(cx-set-camera-relative '(-4.01178 -3.71674 7.90007) '(0 0 0) '(-0.431622 -0.310138 -0.507337) 0 0)(cx-use-window-id 51)(cx-set-camera-relative '(13.5919 15.8944 -5.74914) '(0 0 0) '(-0.998155 0.981463 1.06665) 0 0)(cx-use-window-id 51)(cx-set-camera-relative '(4.50369 -1.96562 9.38492) '(0 0 0) '(0.241115 -0.401894 0.653401) 0 0)(cx-use-window-id 51)(cx-set-camera-relative '(-19.3158 4.49172 1.42555) '(0 0 0) '(0.372628 -0.656103 0.108974) 0 0)")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*Mesh Display*fl_mesh_svg_graphics_toolbar")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Mesh Display*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*Mesh Display*frontfacestransparent")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*Mesh Display*frontfacestransparent")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*Object Selection/Display*toolbar_show")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*Object Selection/Display*toolbar_hide")')
+setup1.SendCommand(Command="(cx-use-window-id 51)(cx-set-camera-relative '(-0.00656223 -0.359154 0.909586) '(0 0 0) '(0.0955195 -0.0103261 -0.0176594) 0 0)")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*Mesh Display*fl_mesh_svg_graphics_toolbar")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Mesh Display*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Mesh Display*Table1*Frame3*List1(Surfaces)\" '( 0 1 2 4))(cx-gui-do cx-activate-item \"Mesh Display*Table1*Frame3*List1(Surfaces)\")(cx-gui-do cx-activate-item \"Mesh Display*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-set-toggle-button2 "Mesh Display*Table1*Frame1*Frame1*ToggleBox1(Options)*CheckButton2(Edges)" #t)(cx-gui-do cx-activate-item "Mesh Display*Table1*Frame1*Frame1*ToggleBox1(Options)*CheckButton2(Edges)")(cx-gui-do cx-activate-item "Mesh Display*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-toggle-button2 "Mesh Display*Table1*Frame1*Frame1*ToggleBox1(Options)*CheckButton3(Faces)" #f)(cx-gui-do cx-activate-item "Mesh Display*Table1*Frame1*Frame1*ToggleBox1(Options)*CheckButton3(Faces)")(cx-gui-do cx-activate-item "Mesh Display*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Mesh Display*Table1*Frame3*List1(Surfaces)\" '( 0 1 2 3 4))(cx-gui-do cx-activate-item \"Mesh Display*Table1*Frame3*List1(Surfaces)\")(cx-gui-do cx-set-list-selections \"Mesh Display*Table1*Frame3*List1(Surfaces)\" '( 0 1 2 4))(cx-gui-do cx-activate-item \"Mesh Display*Table1*Frame3*List1(Surfaces)\")(cx-gui-do cx-activate-item \"Mesh Display*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Mesh Display*Table1*Frame3*List1(Surfaces)\" '( 0 1 2 3 4))(cx-gui-do cx-activate-item \"Mesh Display*Table1*Frame3*List1(Surfaces)\")(cx-gui-do cx-activate-item \"Mesh Display*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Mesh Display*Table1*Frame3*List1(Surfaces)\" '( 0 1 2 4))(cx-gui-do cx-activate-item \"Mesh Display*Table1*Frame3*List1(Surfaces)\")(cx-gui-do cx-activate-item \"Mesh Display*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Mesh Display*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-toggle-button2 \"General*Table1*Table3*CheckButton1(Gravity)\" #t)(cx-gui-do cx-activate-item \"General*Table1*Table3*CheckButton1(Gravity)\")(cx-gui-do cx-set-expression-entry \"General*Table1*Table3*Frame3*Frame1(Gravitational Acceleration)*ExpressionEntry3(Z)\" '(\"-9.81\" . 0))(cx-gui-do cx-activate-item \"General*Table1*Table3*Frame3*Frame1(Gravitational Acceleration)*ExpressionEntry3(Z)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-expression-entry \"General*Table1*Table3*Frame3*Frame1(Gravitational Acceleration)*ExpressionEntry3(Z)\" '(\"-9.81\" . 0))(cx-gui-do cx-set-expression-entry \"General*Table1*Table3*Frame3*Frame1(Gravitational Acceleration)*ExpressionEntry3(Z)\" '(\"-9.81\" . 0))(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Setup|General\"))(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Setup|General\"))")
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|General"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|General"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Viscous (SST k-omega)"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Viscous (SST k-omega)"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Viscous (SST k-omega)"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Viscous (SST k-omega)"))(cx-gui-do cx-set-toggle-button2 "Viscous Model*Table1*ToggleBox1(Model)*k-epsilon (2 eqn)" #t)(cx-gui-do cx-activate-item "Viscous Model*Table1*ToggleBox1(Model)*k-epsilon (2 eqn)")(cx-gui-do cx-activate-item "Viscous Model*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models"))')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Models*Table1*PushButton2(Edit)")(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1" 0)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1" 1)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1" 0)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1" 2)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1" 0)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1" 3)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1" 0)')
+setup1.SendCommand(Command='(cx-gui-do cx-set-toggle-button2 "Multiphase Model*Frame1*Frame1(Models)*Table1*Frame1*Table1*ToggleBox1(Model)*Volume of Fluid" #t)(cx-gui-do cx-activate-item "Multiphase Model*Frame1*Frame1(Models)*Table1*Frame1*Table1*ToggleBox1(Model)*Volume of Fluid")(cx-gui-do cx-set-toggle-button2 "Multiphase Model*Frame1*Frame1(Models)*Table1*Frame1*Table1*Table8(VOF Sub-Models)*CheckButton1(Open Channel Flow)" #t)(cx-gui-do cx-activate-item "Multiphase Model*Frame1*Frame1(Models)*Table1*Frame1*Table1*Table8(VOF Sub-Models)*CheckButton1(Open Channel Flow)")(cx-gui-do cx-set-toggle-button2 "Multiphase Model*Frame1*Frame1(Models)*Table1*Frame1*Table1*Table12(Body Force Formulation)*CheckButton1(Implicit Body Force)" #t)(cx-gui-do cx-activate-item "Multiphase Model*Frame1*Frame1(Models)*Table1*Frame1*Table1*Table12(Body Force Formulation)*CheckButton1(Implicit Body Force)")(cx-gui-do cx-activate-item "Multiphase Model*PanelButtons*PushButton1(OK)")(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1*Frame3(Phase Interaction)*Table1*Table1*Frame1*Frame2*Frame1" 0)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1*Frame3(Phase Interaction)*Table1*Table1*Frame1*Frame2*Frame1" 1)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1*Frame3(Phase Interaction)*Table1*Table1*Frame1*Frame2*Frame1" 0)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1*Frame3(Phase Interaction)*Table1*Table1*Frame1*Frame2*Frame1" 2)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1*Frame3(Phase Interaction)*Table1*Table1*Frame1*Frame2*Frame1" 0)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1*Frame3(Phase Interaction)*Table1*Table1*Frame1*Frame2*Frame1*Frame3(Heat, Mass, Reactions)" 0)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1*Frame3(Phase Interaction)*Table1*Table1*Frame1*Frame2*Frame1*Frame3(Heat, Mass, Reactions)" 1)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1*Frame3(Phase Interaction)*Table1*Table1*Frame1*Frame2*Frame1*Frame3(Heat, Mass, Reactions)" 0)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1*Frame3(Phase Interaction)*Table1*Table1*Frame1*Frame2*Frame1*Frame3(Heat, Mass, Reactions)" 2)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1*Frame3(Phase Interaction)*Table1*Table1*Frame1*Frame2*Frame1*Frame3(Heat, Mass, Reactions)" 0)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1*Frame3(Phase Interaction)*Table1*Table1*Frame1*Frame2*Frame1" 3)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1*Frame3(Phase Interaction)*Table1*Table1*Frame1*Frame2*Frame1" 0)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1*Frame3(Phase Interaction)*Table1*Table1*Frame1*Frame2*Frame1" 4)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1*Frame3(Phase Interaction)*Table1*Table1*Frame1*Frame2*Frame1" 0)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1*Frame3(Phase Interaction)*Table1*Table1*Frame1*Frame2*Frame1*Frame3(Heat, Mass, Reactions)" 0)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1*Frame3(Phase Interaction)*Table1*Table1*Frame1*Frame2*Frame1*Frame3(Heat, Mass, Reactions)" 0)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1*Frame3(Phase Interaction)*Table1*Table1*Frame1*Frame2*Frame1" 0)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1*Frame3(Phase Interaction)*Table1*Table1*Frame1*Frame2*Frame1*Frame3(Heat, Mass, Reactions)" 0)')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Multiphase Model*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Materials|Fluid"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Materials|Fluid"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Materials|Fluid"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Materials|Fluid"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Materials"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Materials"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Materials"))')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Materials*Table1*ButtonBox2*PushButton1(Create/Edit)")')
+setup1.SendCommand(Command="(cx-gui-do cx-activate-item \"Create/Edit Materials*Table1*Frame1*Frame2*ButtonBox2*PushButton1(Fluent Database)\")(cx-gui-do cx-set-list-selections \"Fluent Database Materials*Table1*Frame1*List1(Materials)\" '( 565))(cx-gui-do cx-activate-item \"Fluent Database Materials*Table1*Frame1*List1(Materials)\")(cx-gui-do cx-activate-item \"Fluent Database Materials*PanelButtons*PushButton6(Copy)\")(cx-gui-do cx-activate-item \"Fluent Database Materials*PanelButtons*PushButton1(Close)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Create/Edit Materials*PanelButtons*PushButton1(Close)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Multiphase (Volume of Fluid)"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Multiphase (Volume of Fluid)"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Multiphase (Volume of Fluid)"))(cx-gui-do cx-activate-item "Multiphase Model*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Multiphase (Volume of Fluid)"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Multiphase (Volume of Fluid)"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Multiphase (Volume of Fluid)"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Multiphase (Volume of Fluid)"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models"))(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1" 1)(cx-gui-do cx-activate-item "Multiphase Model*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Multiphase (Volume of Fluid)"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Multiphase (Volume of Fluid)"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Multiphase (Volume of Fluid)"))(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1" 0)(cx-gui-do cx-activate-item "Multiphase Model*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Multiphase (Volume of Fluid)"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Multiphase (Volume of Fluid)"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Setup|Models|Multiphase (Volume of Fluid)\"))(cx-gui-do cx-activate-tab-index \"Multiphase Model*Frame1\" 1)(cx-gui-do cx-set-list-selections \"Multiphase Model*Frame1*Frame2(Phases)*Table1*Frame1*Table1*Frame1(Phases)*List1\" '( 1))(cx-gui-do cx-activate-item \"Multiphase Model*Frame1*Frame2(Phases)*Table1*Frame1*Table1*Frame1(Phases)*List1\")(cx-gui-do cx-set-list-selections \"Multiphase Model*Frame1*Frame2(Phases)*Table1*Frame1*Table1*Frame2(Phase Setup)*Frame2*Table2*Table1*DropDownList1(Phase Material)\" '( 0))")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Multiphase Model*Frame1*Frame2(Phases)*Table1*Frame1*Table1*Frame2(Phase Setup)*Frame2*Table2*Table1*DropDownList1(Phase Material)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Multiphase Model*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Multiphase Model*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Multiphase Model*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Inlet"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Setup|Boundary Conditions\"))(cx-gui-do cx-set-list-selections \"Boundary Conditions*Table1*List2(Zone)\" '( 1))(cx-gui-do cx-activate-item \"Boundary Conditions*Table1*List2(Zone)\")(cx-gui-do cx-set-list-selections \"Boundary Conditions*Table1*Table3*DropDownList2(Type)\" '( 10))")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Boundary Conditions*Table1*Table3*DropDownList2(Type)")(cx-gui-do cx-activate-tab-index "Pressure Inlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Pressure Inlet*Frame2*Frame2" 1)(cx-gui-do cx-activate-tab-index "Pressure Inlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Pressure Inlet*Frame2*Frame2" 2)(cx-gui-do cx-activate-tab-index "Pressure Inlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Pressure Inlet*Frame2*Frame2" 3)(cx-gui-do cx-activate-tab-index "Pressure Inlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Pressure Inlet*Frame2*Frame2" 4)(cx-gui-do cx-activate-tab-index "Pressure Inlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Pressure Inlet*Frame2*Frame2" 5)(cx-gui-do cx-activate-tab-index "Pressure Inlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Pressure Inlet*Frame2*Frame2" 6)(cx-gui-do cx-activate-tab-index "Pressure Inlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Pressure Inlet*Frame2*Frame2" 7)(cx-gui-do cx-activate-tab-index "Pressure Inlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Pressure Inlet*Frame2*Frame2" 8)(cx-gui-do cx-activate-tab-index "Pressure Inlet*Frame2*Frame2" 0)')
+setup1.SendCommand(Command="(cx-gui-do cx-activate-tab-index \"Pressure Inlet*Frame2*Frame2\" 5)(cx-gui-do cx-enable-apply-button \"Pressure Inlet\")(cx-gui-do cx-set-toggle-button2 \"Pressure Inlet*Frame2*Frame2*Frame6(Multiphase)*Table1*CheckButton2(Open Channel)\" #t)(cx-gui-do cx-activate-item \"Pressure Inlet*Frame2*Frame2*Frame6(Multiphase)*Table1*CheckButton2(Open Channel)\")(cx-gui-do cx-set-expression-entry \"Pressure Inlet*Frame2*Frame2*Frame6(Multiphase)*Table1*Table9*ExpressionEntry1(Bottom Level)\" '(\"0\" . 0))(cx-gui-do cx-set-expression-entry \"Pressure Inlet*Frame2*Frame2*Frame6(Multiphase)*Table1*Table9*ExpressionEntry1(Bottom Level)\" '(\"0.15\" . 0))(cx-gui-do cx-activate-item \"Pressure Inlet*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-enable-apply-button "Pressure Inlet")(cx-gui-do cx-activate-item "Pressure Inlet*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Boundary Conditions*Table1*Table3*Table4*ButtonBox1*PushButton1(Edit)")')
+setup1.SendCommand(Command="(cx-gui-do cx-enable-apply-button \"Pressure Inlet\")(cx-gui-do cx-set-expression-entry \"Pressure Inlet*Frame2*Frame2*Frame6(Multiphase)*Table1*Table8*ExpressionEntry1(Velocity Magnitude)\" '(\"1.5433\" . 0))")
+setup1.SendCommand(Command="(cx-gui-do cx-set-expression-entry \"Pressure Inlet*Frame2*Frame2*Frame6(Multiphase)*Table1*Table8*ExpressionEntry1(Velocity Magnitude)\" '(\"1.5433\" . 0))(cx-gui-do cx-activate-item \"Pressure Inlet*Frame2*Frame2*Frame6(Multiphase)*Table1*Table8*ExpressionEntry1(Velocity Magnitude)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-expression-entry \"Pressure Inlet*Frame2*Frame2*Frame6(Multiphase)*Table1*Table8*ExpressionEntry1(Velocity Magnitude)\" '(\"1.5433\" . 0))(cx-gui-do cx-activate-item \"Pressure Inlet*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-enable-apply-button "Pressure Inlet")(cx-gui-do cx-activate-item "Pressure Inlet*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Boundary Conditions*Table1*List2(Zone)\" '( 3))(cx-gui-do cx-activate-item \"Boundary Conditions*Table1*List2(Zone)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Boundary Conditions*Table1*Table3*Table4*ButtonBox1*PushButton1(Edit)")(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 1)(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 2)(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 3)(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 4)(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 5)(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 6)(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 7)(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 8)(cx-gui-do cx-activate-tab-index "Pressure Outlet*Frame2*Frame2" 0)')
+setup1.SendCommand(Command="(cx-gui-do cx-activate-tab-index \"Pressure Outlet*Frame2*Frame2\" 5)(cx-gui-do cx-enable-apply-button \"Pressure Outlet\")(cx-gui-do cx-set-toggle-button2 \"Pressure Outlet*Frame2*Frame2*Frame6(Multiphase)*Table1*CheckButton2(Open Channel)\" #t)(cx-gui-do cx-activate-item \"Pressure Outlet*Frame2*Frame2*Frame6(Multiphase)*Table1*CheckButton2(Open Channel)\")(cx-gui-do cx-set-expression-entry \"Pressure Outlet*Frame2*Frame2*Frame6(Multiphase)*Table1*Table7*ExpressionEntry1(Bottom Level)\" '(\"0.15\" . 0))")
+setup1.SendCommand(Command="(cx-gui-do cx-set-expression-entry \"Pressure Outlet*Frame2*Frame2*Frame6(Multiphase)*Table1*Table7*ExpressionEntry1(Bottom Level)\" '(\"0.15\" . 0))(cx-gui-do cx-activate-item \"Pressure Outlet*Frame2*Frame2*Frame6(Multiphase)*Table1*Table7*ExpressionEntry1(Bottom Level)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-expression-entry \"Pressure Outlet*Frame2*Frame2*Frame6(Multiphase)*Table1*Table7*ExpressionEntry1(Bottom Level)\" '(\"0.15\" . 0))(cx-gui-do cx-activate-item \"Pressure Outlet*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pressure Outlet*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Controls"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Controls"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Controls"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Residual"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Residual"))(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots"))')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Report Plot Definitions*Table1*ButtonBox3*PushButton1(New)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report Plot*Table1*Table6*PushButton1(New)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*Force ReportSubMenu*Drag...")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Drag Report Definition*Table1*Table2*List2(Zones)\" '( 0))(cx-gui-do cx-activate-item \"Drag Report Definition*Table1*Table2*List2(Zones)\")(cx-gui-do cx-set-toggle-button2 \"Drag Report Definition*Table1*Table2*ToggleBox1(Report Output Type)*Drag Force\" #t)(cx-gui-do cx-activate-item \"Drag Report Definition*Table1*Table2*ToggleBox1(Report Output Type)*Drag Force\")(cx-gui-do cx-activate-item \"Drag Report Definition*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"New Report Plot*Table1*List4(Available Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"New Report Plot*Table1*List4(Available Report Definitions)\")(cx-gui-do cx-set-list-selections \"New Report Plot*Table1*List4(Available Report Definitions)\" '())(cx-gui-do cx-activate-item \"New Report Plot*Table1*List4(Available Report Definitions)\")(cx-gui-do cx-set-list-selections \"New Report Plot*Table1*List4(Available Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"New Report Plot*Table1*List4(Available Report Definitions)\")(cx-gui-do cx-set-list-selections \"New Report Plot*Table1*List4(Available Report Definitions)\" '())(cx-gui-do cx-activate-item \"New Report Plot*Table1*List4(Available Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report Plot*PanelButtons*PushButton6(Plot)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"New Report Plot*Table1*List4(Available Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"New Report Plot*Table1*List4(Available Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report Plot*Table1*Table3*PushButton1( Add>>)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"New Report Plot*Table1*List2(Selected Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"New Report Plot*Table1*List2(Selected Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report Plot*Table1*Table6*PushButton2(Edit)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-text-entry "Drag Report Definition*Table1*TextEntry3(Name)" "drag")(cx-gui-do cx-activate-item "Drag Report Definition*Table1*TextEntry3(Name)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Drag Report Definition*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"New Report Plot*Table1*List4(Available Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"New Report Plot*Table1*List4(Available Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report Plot*Table1*Table3*PushButton1( Add>>)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-text-entry "New Report Plot*Table1*Table1*TextEntry1(Name)" "drag")(cx-gui-do cx-activate-item "New Report Plot*Table1*Table1*TextEntry1(Name)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"New Report Plot*Table1*List2(Selected Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"New Report Plot*Table1*List2(Selected Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report Plot*Table1*Table6*PushButton2(Edit)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-text-entry "Drag Report Definition*Table1*TextEntry3(Name)" "drag01")(cx-gui-do cx-activate-item "Drag Report Definition*Table1*TextEntry3(Name)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Drag Report Definition*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"New Report Plot*Table1*List4(Available Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"New Report Plot*Table1*List4(Available Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report Plot*Table1*Table3*PushButton1( Add>>)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report Plot*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Report Plot Definitions*Table1*List1(Report Plots)\" '( 1))(cx-gui-do cx-activate-item \"Report Plot Definitions*Table1*List1(Report Plots)\")(cx-gui-do cx-set-list-selections \"Report Plot Definitions*Table1*List1(Report Plots)\" '( 0 1))(cx-gui-do cx-activate-item \"Report Plot Definitions*Table1*List1(Report Plots)\")(cx-gui-do cx-set-list-selections \"Report Plot Definitions*Table1*List1(Report Plots)\" '( 0))(cx-gui-do cx-activate-item \"Report Plot Definitions*Table1*List1(Report Plots)\")(cx-gui-do cx-set-list-selections \"Report Plot Definitions*Table1*List1(Report Plots)\" '())(cx-gui-do cx-activate-item \"Report Plot Definitions*Table1*List1(Report Plots)\")(cx-gui-do cx-set-list-selections \"Report Plot Definitions*Table1*List1(Report Plots)\" '( 1))(cx-gui-do cx-activate-item \"Report Plot Definitions*Table1*List1(Report Plots)\")(cx-gui-do cx-activate-item \"Report Plot Definitions*PanelButtons*PushButton1(Close)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots"))')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Report Plot Definitions*Table1*ButtonBox3*PushButton2(Edit)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Edit Report Plot*Table1*List2(Selected Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"Edit Report Plot*Table1*List2(Selected Report Definitions)\")(cx-gui-do cx-activate-item \"Edit Report Plot*PanelButtons*PushButton2(Cancel)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Report Plot Definitions*Table1*List1(Report Plots)\" '( 0 1))(cx-gui-do cx-activate-item \"Report Plot Definitions*Table1*List1(Report Plots)\")(cx-gui-do cx-set-list-selections \"Report Plot Definitions*Table1*List1(Report Plots)\" '( 1))(cx-gui-do cx-activate-item \"Report Plot Definitions*Table1*List1(Report Plots)\")(cx-gui-do cx-set-list-selections \"Report Plot Definitions*Table1*List1(Report Plots)\" '())(cx-gui-do cx-activate-item \"Report Plot Definitions*Table1*List1(Report Plots)\")(cx-gui-do cx-set-list-selections \"Report Plot Definitions*Table1*List1(Report Plots)\" '( 0))(cx-gui-do cx-activate-item \"Report Plot Definitions*Table1*List1(Report Plots)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Report Plot Definitions*Table1*ButtonBox3*PushButton2(Edit)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Edit Report Plot*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Report Plot Definitions*Table1*List1(Report Plots)\" '( 0 1))(cx-gui-do cx-activate-item \"Report Plot Definitions*Table1*List1(Report Plots)\")(cx-gui-do cx-set-list-selections \"Report Plot Definitions*Table1*List1(Report Plots)\" '( 1))(cx-gui-do cx-activate-item \"Report Plot Definitions*Table1*List1(Report Plots)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Report Plot Definitions*Table1*ButtonBox3*PushButton3(Delete)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Report Plot Definitions*PanelButtons*PushButton1(Close)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Solution|Initialization\"))(cx-gui-do cx-set-list-selections \"Solution Initialization*Table1*DropDownList1(Compute from)\" '( 1))")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Solution Initialization*Table1*DropDownList1(Compute from)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Solution Initialization*Table1*DropDownList5(Open channel Initialization Method)\" '( 1))")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Solution Initialization*Table1*DropDownList5(Open channel Initialization Method)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Solution Initialization*Table1*Frame9*PushButton1(Initialize)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours"))')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Contours*Table1*Frame3*Table1*DropDownList1(Contours of)\" '( 10))")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Contours*Table1*Frame3*Table1*DropDownList1(Contours of)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Contours*Table1*Frame3*Table1*DropDownList3(Phase)\" '( 1))")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Contours*Table1*Frame3*Table1*DropDownList3(Phase)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Contours*Table1*Frame3*Frame2*List2(Surfaces)\" '( 0))(cx-gui-do cx-activate-item \"Contours*Table1*Frame3*Frame2*List2(Surfaces)\")(cx-gui-do cx-set-list-selections \"Contours*Table1*Frame3*Frame2*List2(Surfaces)\" '( 0 1 2 3 4))(cx-gui-do cx-activate-item \"Contours*Table1*Frame3*Frame2*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Contours*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-use-window-id 51)(cx-set-camera-relative '(-0.590055 0.00433445 -1.69796) '(0 0 0) '(-0.117994 0.0696996 0.0315336) 0 0)")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Contours*PanelButtons*PushButton4(Compute)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Contours*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Multiphase (Volume of Fluid)"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Multiphase (Volume of Fluid)"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Multiphase (Volume of Fluid)"))(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1" 2)(cx-gui-do cx-activate-tab-index "Multiphase Model*Frame1" 1)')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Multiphase Model*Frame1*Frame2(Phases)*Table1*Frame1*Table1*Frame2(Phase Setup)*Frame2*Table2*Table1*PushButton2(Edit)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Edit Material*PanelButtons*PushButton1(Close)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Multiphase Model*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Inlet"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Inlet"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Inlet"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Setup|Boundary Conditions|Inlet\"))(cx-gui-do cx-enable-apply-button \"Pressure Inlet\")(cx-gui-do cx-set-expression-entry \"Pressure Inlet*Frame2*Frame2*Frame6(Multiphase)*Table1*Table9*ExpressionEntry1(Bottom Level)\" '(\"1.5\" . 0))(cx-gui-do cx-activate-item \"Pressure Inlet*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-enable-apply-button "Pressure Inlet")(cx-gui-do cx-activate-item "Pressure Inlet*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-enable-apply-button "Pressure Inlet")(cx-gui-do cx-activate-item "Pressure Inlet*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Setup|Boundary Conditions|Outlet\"))(cx-gui-do cx-enable-apply-button \"Pressure Outlet\")(cx-gui-do cx-set-expression-entry \"Pressure Outlet*Frame2*Frame2*Frame6(Multiphase)*Table1*Table7*ExpressionEntry1(Bottom Level)\" '(\"1.5\" . 0))(cx-gui-do cx-activate-item \"Pressure Outlet*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours|contour-1"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours|contour-1"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours|contour-1"))')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Contours*PanelButtons*PushButton4(Compute)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Contours*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))(cx-gui-do cx-activate-item "Pressure Outlet*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Solution Initialization*Table1*Frame9*PushButton1(Initialize)")(cx-gui-do cx-activate-item "Question*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours|contour-1"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours|contour-1"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours|contour-1"))')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Contours*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Contours*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Contours*PanelButtons*PushButton4(Compute)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Contours*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Contours*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Contours*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Contours*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command="(cx-use-window-id 51)(cx-set-camera-relative '(-2.25713 -0.310045 0.083585) '(0 0 0) '(0.00210398 0.0116226 0.00167596) 0 0)(cx-gui-do cx-activate-item \"Contours*PanelButtons*PushButton2(Cancel)\")")
+setup1.SendCommand(Command="(cx-use-window-id 51)(cx-set-camera-relative '(2.90473 2.90148 -0.0614002) '(0 0 0) '(0.00986183 0.029824 0.00322229) 0 0)(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Setup|Boundary Conditions|Inlet\"))")
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Inlet"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Setup|Boundary Conditions|Inlet\"))(cx-gui-do cx-enable-apply-button \"Pressure Inlet\")(cx-gui-do cx-set-expression-entry \"Pressure Inlet*Frame2*Frame2*Frame6(Multiphase)*Table1*Table9*ExpressionEntry1(Bottom Level)\" '(\"15\" . 0))")
+setup1.SendCommand(Command="(cx-gui-do cx-set-expression-entry \"Pressure Inlet*Frame2*Frame2*Frame6(Multiphase)*Table1*Table9*ExpressionEntry1(Bottom Level)\" '(\"15\" . 0))(cx-gui-do cx-activate-item \"Pressure Inlet*Frame2*Frame2*Frame6(Multiphase)*Table1*Table9*ExpressionEntry1(Bottom Level)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-expression-entry \"Pressure Inlet*Frame2*Frame2*Frame6(Multiphase)*Table1*Table9*ExpressionEntry1(Bottom Level)\" '(\"15\" . 0))(cx-gui-do cx-activate-item \"Pressure Inlet*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-enable-apply-button "Pressure Inlet")(cx-gui-do cx-activate-item "Pressure Inlet*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Setup|Boundary Conditions|Outlet\"))(cx-gui-do cx-set-expression-entry \"Pressure Outlet*Frame2*Frame2*Frame6(Multiphase)*Table1*Table7*ExpressionEntry1(Bottom Level)\" '(\"1.5\" . 0))")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Ribbon*Frame1*Frame2(Domain)*Table1*Table3(Mesh)*PushButton6(Scale)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Scale Mesh*PanelButtons*PushButton1(Close)")')
+setup1.SendCommand(Command="(cx-gui-do cx-enable-apply-button \"Pressure Outlet\")(cx-gui-do cx-set-expression-entry \"Pressure Outlet*Frame2*Frame2*Frame6(Multiphase)*Table1*Table7*ExpressionEntry1(Bottom Level)\" '(\"-0.75\" . 0))(cx-gui-do cx-set-expression-entry \"Pressure Outlet*Frame2*Frame2*Frame6(Multiphase)*Table1*Table6*ExpressionEntry1(Free Surface Level)\" '(\"0.15\" . 0))(cx-gui-do cx-activate-item \"Pressure Outlet*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Inlet"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Inlet"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Setup|Boundary Conditions|Inlet\"))(cx-gui-do cx-enable-apply-button \"Pressure Inlet\")(cx-gui-do cx-set-expression-entry \"Pressure Inlet*Frame2*Frame2*Frame6(Multiphase)*Table1*Table6*ExpressionEntry1(Free Surface Level)\" '(\"0.15\" . 0))(cx-gui-do cx-set-expression-entry \"Pressure Inlet*Frame2*Frame2*Frame6(Multiphase)*Table1*Table9*ExpressionEntry1(Bottom Level)\" '(\"-0.75\" . 0))(cx-gui-do cx-activate-item \"Pressure Inlet*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-enable-apply-button "Pressure Inlet")(cx-gui-do cx-enable-apply-button "Pressure Outlet")(cx-gui-do cx-activate-item "Pressure Inlet*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pressure Outlet*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Ribbon*Frame1*Frame2(Domain)*Table1*Table3(Mesh)*PushButton6(Scale)")')
+setup1.SendCommand(Command="(cx-use-window-id 51)(cx-set-camera-relative '(-6.42557 -10.5592 0.67641) '(0 0 0) '(0.0734142 -0.0392398 -0.0154851) 0 0)(cx-use-window-id 51)(cx-set-camera-relative '(-0.171717 0.464083 -1.7689) '(0 0 0) '(-0.0967396 0.0680899 0.0205587) 0 0)(cx-use-window-id 51)(cx-set-camera-relative '(-0.247955 -1.54571 -0.212983) '(0 0 0) '(-0.00404347 0.0107457 0.0012269) 0 0)(cx-use-window-id 51)(cx-set-camera-relative '(0.0837917 -1.13277 0.795642) '(0 0 0) '(0.122487 0.0651284 -0.0126886) 0 0)(cx-gui-do cx-activate-item \"Scale Mesh*PanelButtons*PushButton1(Close)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Solution Initialization*Table1*Frame9*PushButton1(Initialize)")(cx-gui-do cx-activate-item "Question*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours"))')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Contours*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command="(cx-use-window-id 51)(cx-set-camera-relative '(1.35362 4.75731 -1.14808) '(0 0 0) '(-0.181821 -0.0143221 0.0178224) 0 0)(cx-gui-do cx-set-list-selections \"Contours*Table1*Frame3*Frame2*List2(Surfaces)\" '( 0))(cx-gui-do cx-activate-item \"Contours*Table1*Frame3*Frame2*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Contours*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="""(cx-use-window-id 51)(cx-set-camera-relative '(-0.269166 -0.388499 0.256028) '(0 0 0) '(0.0307809 -0.0218529 -0.0016377) 0 0)(cx-use-window-id 51)(handle-key \"??\")(cx-use-window-id 51)(cx-set-camera '(-8.15704 3.48023 0.705144) '(-2.40448 -0.420835 0.274947) '(0.0207823 -0.07926 0.996637) 1.96968 1.96968 \"perspective\")
+(cx-use-window-id 51)(handle-key \"control ??\")(cx-use-window-id 51)(dolly-camera 0.746837 -1.08006 0)(cx-use-window-id 51)(dolly-camera 0.0285125 -0.0473146 0)(cx-gui-do cx-set-list-selections \"Contours*Table1*Frame3*Frame2*List2(Surfaces)\" '( 0 4))(cx-gui-do cx-activate-item \"Contours*Table1*Frame3*Frame2*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Contours*PanelButtons*PushButton1(OK)\")""")
+setup1.SendCommand(Command="(cx-use-window-id 51)(cx-set-camera-relative '(-0.0677776 -0.11886 0.130064) '(0 0 0) '(0.031886 0.0127133 -0.000241995) 0 0)(cx-gui-do cx-activate-item \"Contours*PanelButtons*PushButton2(Cancel)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Run Calculation"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Run Calculation"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Solution|Run Calculation\"))(cx-gui-do cx-set-expression-entry \"Run Calculation*Table1*Table2(Pseudo Time Settings)*Table1(Fluid Time Scale)*Table3*ExpressionEntry2(Time Scale Factor)\" '(\"0.5\" . 0))(cx-gui-do cx-activate-item \"Run Calculation*Table1*Table2(Pseudo Time Settings)*Table1(Fluid Time Scale)*Table3*ExpressionEntry2(Time Scale Factor)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-set-integer-entry "Run Calculation*Table1*Table3(Parameters)*Table1*Table1*IntegerEntry1(Number of Iterations)" 200)(cx-gui-do cx-activate-item "Run Calculation*Table1*Table3(Parameters)*Table1*Table1*IntegerEntry1(Number of Iterations)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Run Calculation*Table1*Table6(Solution Advancement)*Table1*PushButton1(Calculate)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list ))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files"))(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Report File Definitions*Table1*ButtonBox3*PushButton1(New)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report File*Table1*Table5*PushButton1(New)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*Force ReportSubMenu*Drag...")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Drag Report Definition*Table1*Table2*List2(Zones)\" '( 0))(cx-gui-do cx-activate-item \"Drag Report Definition*Table1*Table2*List2(Zones)\")(cx-gui-do cx-activate-item \"Drag Report Definition*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report File*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Report File Definitions*Table1*List1(Report Files)\" '( 1))(cx-gui-do cx-activate-item \"Report File Definitions*Table1*List1(Report Files)\")(cx-gui-do cx-set-list-selections \"Report File Definitions*Table1*List1(Report Files)\" '( 1 2))(cx-gui-do cx-activate-item \"Report File Definitions*Table1*List1(Report Files)\")(cx-gui-do cx-set-list-selections \"Report File Definitions*Table1*List1(Report Files)\" '( 2))(cx-gui-do cx-activate-item \"Report File Definitions*Table1*List1(Report Files)\")(cx-gui-do cx-activate-item \"Report File Definitions*PanelButtons*PushButton1(Close)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|report-def-0-rfile"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|report-file-0"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|report-file-1"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|report-file-1"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Solution|Monitors|Report Files|report-file-1\"))(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Solution|Monitors|Report Files|report-file-1\"))(cx-gui-do cx-set-list-selections \"Edit Report File*Table1*List2(Available Report Definitions)\" '( 1))(cx-gui-do cx-activate-item \"Edit Report File*Table1*List2(Available Report Definitions)\")(cx-gui-do cx-set-list-selections \"Edit Report File*Table1*List2(Available Report Definitions)\" '())(cx-gui-do cx-activate-item \"Edit Report File*Table1*List2(Available Report Definitions)\")(cx-gui-do cx-set-list-selections \"Edit Report File*Table1*List2(Available Report Definitions)\" '( 1))(cx-gui-do cx-activate-item \"Edit Report File*Table1*List2(Available Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Edit Report File*Table1*Table4*PushButton1( Add>>)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Edit Report File*Table1*List3(Selected Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"Edit Report File*Table1*List3(Selected Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Edit Report File*Table1*Table5*PushButton2(Edit)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-text-entry "Drag Report Definition*Table1*TextEntry3(Name)" "drag-coefficent")(cx-gui-do cx-activate-item "Drag Report Definition*Table1*TextEntry3(Name)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Drag Report Definition*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Edit Report File*Table1*List2(Available Report Definitions)\" '( 1))(cx-gui-do cx-activate-item \"Edit Report File*Table1*List2(Available Report Definitions)\")(cx-gui-do cx-set-list-selections \"Edit Report File*Table1*List2(Available Report Definitions)\" '())(cx-gui-do cx-activate-item \"Edit Report File*Table1*List2(Available Report Definitions)\")(cx-gui-do cx-set-list-selections \"Edit Report File*Table1*List2(Available Report Definitions)\" '( 1))(cx-gui-do cx-activate-item \"Edit Report File*Table1*List2(Available Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Edit Report File*Table1*Table4*PushButton1( Add>>)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Edit Report File*Table1*List3(Selected Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"Edit Report File*Table1*List3(Selected Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Edit Report File*Table1*Table5*PushButton2(Edit)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Drag Report Definition*Table1*Table1*List3(Report Files)\" '( 1 2))(cx-gui-do cx-activate-item \"Drag Report Definition*Table1*Table1*List3(Report Files)\")(cx-gui-do cx-set-list-selections \"Drag Report Definition*Table1*Table1*List3(Report Files)\" '( 1))(cx-gui-do cx-activate-item \"Drag Report Definition*Table1*Table1*List3(Report Files)\")(cx-gui-do cx-activate-item \"Drag Report Definition*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Edit Report File*Table1*List3(Selected Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"Edit Report File*Table1*List3(Selected Report Definitions)\")(cx-gui-do cx-activate-item \"Edit Report File*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|report-def-0-rfile"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|report-def-0-rfile"))(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-report-def-0-rfile*Delete")(cx-gui-do cx-activate-item "Question*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|report-file-0"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|report-file-0"))(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-report-file-0*Delete")(cx-gui-do cx-activate-item "Question*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|report-file-1"))(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-report-file-1*Delete")(cx-gui-do cx-activate-item "Question*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files"))')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Report File Definitions*Table1*ButtonBox3*PushButton1(New)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"New Report File*Table1*List2(Available Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"New Report File*Table1*List2(Available Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report File*Table1*Table4*PushButton1( Add>>)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"New Report File*Table1*List2(Available Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"New Report File*Table1*List2(Available Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report File*Table1*Table4*PushButton1( Add>>)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report File*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|report-file-0"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|report-file-0"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|report-file-0"))(cx-gui-do cx-set-text-entry "Edit Report File*Table1*Table1*TextEntry1(Name)" "drag")(cx-gui-do cx-activate-item "Edit Report File*Table1*Table1*TextEntry1(Name)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Edit Report File*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Report File Definitions*PanelButtons*PushButton1(Close)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-integer-entry "Run Calculation*Table1*Table3(Parameters)*Table1*Table1*IntegerEntry1(Number of Iterations)" 1000)(cx-gui-do cx-activate-item "Run Calculation*Table1*Table3(Parameters)*Table1*Table1*IntegerEntry1(Number of Iterations)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Run Calculation*Table1*Table6(Solution Advancement)*Table1*PushButton1(Calculate)")(cx-gui-do cx-set-toggle-button2 "Settings have changed!*Table1*ToggleBox2*Use settings changes for current and future calculations" #t)(cx-gui-do cx-activate-item "Settings have changed!*Table1*ToggleBox2*Use settings changes for current and future calculations")(cx-gui-do cx-activate-item "Settings have changed!*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))(cx-gui-do cx-activate-item "Information*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Solution Initialization*Table1*Frame9*PushButton1(Initialize)")(cx-gui-do cx-activate-item "Question*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours|contour-2"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours|contour-1"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours|contour-1"))(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-contour-1*Edit...")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Contours*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours|contour-2"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours|contour-2"))(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-contour-2*Edit...")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Contours*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours|contour-1"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours|contour-1"))(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-contour-1*Delete")(cx-gui-do cx-activate-item "Question*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|drag"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|drag"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Solution|Monitors|Report Files|drag\"))(cx-gui-do cx-set-list-selections \"Edit Report File*Table1*List3(Selected Report Definitions)\" '( 1))(cx-gui-do cx-activate-item \"Edit Report File*Table1*List3(Selected Report Definitions)\")(cx-gui-do cx-activate-item \"Edit Report File*PanelButtons*PushButton2(Cancel)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots|drag"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots|drag"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots|drag"))(cx-gui-do cx-activate-item "Edit Report Plot*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots|report-def-0-rplot"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots|report-def-0-rplot"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots|report-def-0-rplot"))(cx-gui-do cx-activate-item "Edit Report Plot*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots|report-def-0-rplot"))(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-report-def-0-rplot*Delete")(cx-gui-do cx-activate-item "Question*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Solution Initialization*Table1*Frame9*PushButton1(Initialize)")(cx-gui-do cx-activate-item "Question*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Run Calculation"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Run Calculation"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Run Calculation"))(cx-gui-do cx-set-integer-entry "Run Calculation*Table1*Table3(Parameters)*Table1*Table1*IntegerEntry1(Number of Iterations)" 300)(cx-gui-do cx-activate-item "Run Calculation*Table1*Table3(Parameters)*Table1*Table1*IntegerEntry1(Number of Iterations)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Run Calculation*Table1*Table6(Solution Advancement)*Table1*PushButton1(Calculate)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Cell Registers"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots|drag"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots|drag"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Solution|Monitors|Report Plots|drag\"))(cx-gui-do cx-set-list-selections \"Edit Report Plot*Table1*List2(Selected Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"Edit Report Plot*Table1*List2(Selected Report Definitions)\")(cx-gui-do cx-set-list-selections \"Edit Report Plot*Table1*List2(Selected Report Definitions)\" '())(cx-gui-do cx-activate-item \"Edit Report Plot*Table1*List2(Selected Report Definitions)\")(cx-gui-do cx-set-list-selections \"Edit Report Plot*Table1*List2(Selected Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"Edit Report Plot*Table1*List2(Selected Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Edit Report Plot*Table1*Table6*PushButton2(Edit)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Drag Report Definition*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Edit Report Plot*Table1*Table6*PushButton1(New)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*Force ReportSubMenu*Drag...")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Drag Report Definition*Table1*Table2*List2(Zones)\" '( 0))(cx-gui-do cx-activate-item \"Drag Report Definition*Table1*Table2*List2(Zones)\")(cx-gui-do cx-activate-item \"Drag Report Definition*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Edit Report Plot*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots|report-def-0-rplot"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots|report-def-0-rplot"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots|report-def-0-rplot"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Solution|Monitors|Report Plots|report-def-0-rplot\"))(cx-gui-do cx-set-list-selections \"Edit Report Plot*Table1*List2(Selected Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"Edit Report Plot*Table1*List2(Selected Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Edit Report Plot*Table1*Table6*PushButton2(Edit)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-text-entry "Drag Report Definition*Table1*TextEntry3(Name)" "dc1")(cx-gui-do cx-activate-item "Drag Report Definition*Table1*TextEntry3(Name)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Drag Report Definition*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-text-entry "Edit Report Plot*Table1*Table1*TextEntry1(Name)" "dc")(cx-gui-do cx-activate-item "Edit Report Plot*Table1*Table1*TextEntry1(Name)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Edit Report Plot*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|report-def-0-rfile"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|report-def-0-rfile"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|report-def-0-rfile"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|report-def-0-rfile"))(cx-gui-do cx-set-text-entry "Edit Report File*Table1*Table1*TextEntry1(Name)" "dc")(cx-gui-do cx-activate-item "Edit Report File*Table1*Table1*TextEntry1(Name)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Edit Report File*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|dc"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|dc"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Solution|Monitors|Report Files|dc\"))(cx-gui-do cx-set-list-selections \"Edit Report File*Table1*List3(Selected Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"Edit Report File*Table1*List3(Selected Report Definitions)\")(cx-gui-do cx-set-list-selections \"Edit Report File*Table1*List3(Selected Report Definitions)\" '())(cx-gui-do cx-activate-item \"Edit Report File*Table1*List3(Selected Report Definitions)\")(cx-gui-do cx-set-list-selections \"Edit Report File*Table1*List3(Selected Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"Edit Report File*Table1*List3(Selected Report Definitions)\")(cx-gui-do cx-set-list-selections \"Edit Report File*Table1*List2(Available Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"Edit Report File*Table1*List2(Available Report Definitions)\")(cx-gui-do cx-set-list-selections \"Edit Report File*Table1*List2(Available Report Definitions)\" '())(cx-gui-do cx-activate-item \"Edit Report File*Table1*List2(Available Report Definitions)\")(cx-gui-do cx-set-list-selections \"Edit Report File*Table1*List2(Available Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"Edit Report File*Table1*List2(Available Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Edit Report File*Table1*Table5*PushButton2(Edit)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Drag Report Definition*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Edit Report File*Table1*List3(Selected Report Definitions)\" '())(cx-gui-do cx-activate-item \"Edit Report File*Table1*List3(Selected Report Definitions)\")(cx-gui-do cx-set-list-selections \"Edit Report File*Table1*List3(Selected Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"Edit Report File*Table1*List3(Selected Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Edit Report File*Table1*Table4*PushButton2( <<Remove)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Edit Report File*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|dc"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|drag"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|dc"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|dc"))(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-dc*Delete")(cx-gui-do cx-activate-item "Question*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files|drag"))(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-drag*Delete")(cx-gui-do cx-activate-item "Question*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots|dc"))(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-dc*Delete")(cx-gui-do cx-activate-item "Question*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots|drag"))(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-drag*Delete")(cx-gui-do cx-activate-item "Question*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Residual"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Residual"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Residual"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Residual"))(cx-gui-do cx-activate-item "Residual Monitors*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Report Plot Definitions*Table1*ButtonBox3*PushButton1(New)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"New Report Plot*Table1*List4(Available Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"New Report Plot*Table1*List4(Available Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report Plot*Table1*Table3*PushButton1( Add>>)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"New Report Plot*Table1*List2(Selected Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"New Report Plot*Table1*List2(Selected Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report Plot*Table1*Table6*PushButton2(Edit)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Drag Report Definition*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"New Report Plot*Table1*List2(Selected Report Definitions)\" '())(cx-gui-do cx-activate-item \"New Report Plot*Table1*List2(Selected Report Definitions)\")(cx-gui-do cx-set-list-selections \"New Report Plot*Table1*List2(Selected Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"New Report Plot*Table1*List2(Selected Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report Plot*Table1*Table3*PushButton2( <<Remove)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"New Report Plot*Table1*List4(Available Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"New Report Plot*Table1*List4(Available Report Definitions)\")(cx-gui-do cx-set-list-selections \"New Report Plot*Table1*List4(Available Report Definitions)\" '())(cx-gui-do cx-activate-item \"New Report Plot*Table1*List4(Available Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report Plot*Table1*List4(Available Report Definitions)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"New Report Plot*Table1*List4(Available Report Definitions)\" '())(cx-gui-do cx-activate-item \"New Report Plot*Table1*List4(Available Report Definitions)\")(cx-gui-do cx-set-list-selections \"New Report Plot*Table1*List4(Available Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"New Report Plot*Table1*List4(Available Report Definitions)\")(cx-gui-do cx-set-list-selections \"New Report Plot*Table1*List4(Available Report Definitions)\" '( 0 1))(cx-gui-do cx-activate-item \"New Report Plot*Table1*List4(Available Report Definitions)\")(cx-gui-do cx-set-list-selections \"New Report Plot*Table1*List4(Available Report Definitions)\" '( 0 1 2))(cx-gui-do cx-activate-item \"New Report Plot*Table1*List4(Available Report Definitions)\")(cx-gui-do cx-activate-item \"New Report Plot*PanelButtons*PushButton2(Cancel)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Report Plot Definitions*Table1*ButtonBox3*PushButton1(New)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"New Report Plot*Table1*List4(Available Report Definitions)\" '( 1))(cx-gui-do cx-activate-item \"New Report Plot*Table1*List4(Available Report Definitions)\")(cx-gui-do cx-set-text-entry \"New Report Plot*Table1*Table1*TextEntry1(Name)\" \"drag-coefficent\")(cx-gui-do cx-activate-item \"New Report Plot*Table1*Table1*TextEntry1(Name)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-set-text-entry "New Report Plot*Table1*Table5(Options)*TextEntry2(Plot Title)" "Drag Coefficent")(cx-gui-do cx-activate-item "New Report Plot*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots"))')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Report Plot Definitions*Table1*ButtonBox3*PushButton1(New)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"New Report Plot*Table1*List4(Available Report Definitions)\" '( 2))(cx-gui-do cx-activate-item \"New Report Plot*Table1*List4(Available Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report Plot*Table1*Table3*PushButton1( Add>>)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"New Report Plot*Table1*List2(Selected Report Definitions)\" '( 0))(cx-gui-do cx-activate-item \"New Report Plot*Table1*List2(Selected Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report Plot*Table1*Table6*PushButton2(Edit)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Drag Report Definition*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-text-entry "New Report Plot*Table1*Table1*TextEntry1(Name)" "drag")(cx-gui-do cx-activate-item "New Report Plot*Table1*Table1*TextEntry1(Name)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-text-entry "New Report Plot*Table1*Table5(Options)*TextEntry2(Plot Title)" "Drag Force")(cx-gui-do cx-activate-item "New Report Plot*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Report Plot Definitions*PanelButtons*PushButton1(Close)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files"))')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Report File Definitions*Table1*ButtonBox3*PushButton1(New)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report File*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))(cx-gui-do cx-activate-item "Report File Definitions*PanelButtons*PushButton1(Close)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Solution Initialization*Table1*Frame9*PushButton1(Initialize)")(cx-gui-do cx-activate-item "Question*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Run Calculation"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Run Calculation"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Run Calculation"))')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Run Calculation*Table1*Table6(Solution Advancement)*Table1*PushButton1(Calculate)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots|drag-coefficent"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots|drag-coefficent"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Solution|Monitors|Report Plots|drag-coefficent\"))(cx-gui-do cx-set-list-selections \"Edit Report Plot*Table1*List4(Available Report Definitions)\" '( 1))(cx-gui-do cx-activate-item \"Edit Report Plot*Table1*List4(Available Report Definitions)\")(cx-gui-do cx-activate-item \"Edit Report Plot*PanelButtons*PushButton2(Cancel)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots|drag"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots|drag"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots|drag"))(cx-gui-do cx-activate-item "Edit Report Plot*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots|drag-coefficent"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Plots|drag-coefficent"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Solution|Monitors|Report Plots|drag-coefficent\"))(cx-gui-do cx-set-list-selections \"Edit Report Plot*Table1*List4(Available Report Definitions)\" '( 1))(cx-gui-do cx-activate-item \"Edit Report Plot*Table1*List4(Available Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Edit Report Plot*Table1*Table3*PushButton1( Add>>)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Edit Report Plot*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Report Files"))')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Report File Definitions*Table1*ButtonBox3*PushButton1(New)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-text-entry "New Report File*Table1*Table1*TextEntry1(Name)" "drag-coefficent")(cx-gui-do cx-activate-item "New Report File*Table1*Table1*TextEntry1(Name)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"New Report File*Table1*List2(Available Report Definitions)\" '( 1))(cx-gui-do cx-activate-item \"New Report File*Table1*List2(Available Report Definitions)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report File*Table1*Table4*PushButton1( Add>>)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report File*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Report File Definitions*Table1*ButtonBox3*PushButton1(New)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"New Report File*Table1*List2(Available Report Definitions)\" '( 1))(cx-gui-do cx-activate-item \"New Report File*Table1*List2(Available Report Definitions)\")(cx-gui-do cx-set-text-entry \"New Report File*Table1*Table1*TextEntry1(Name)\" \"drag\")(cx-gui-do cx-activate-item \"New Report File*Table1*Table1*TextEntry1(Name)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report File*Table1*Table4*PushButton1( Add>>)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-text-entry "New Report File*Table1*Table6(File Name)*TextEntry1" "dragforce")')
+setup1.SendCommand(Command="(cx-gui-do cx-activate-item \"New Report File*Table1*Table6(File Name)*PushButton3(Browse)\")(cx-gui-do cx-set-file-dialog-entries \"Select File\" '( \"dragforce\") \"Output Files (*.out *.xy )\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "New Report File*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-activate-item "Report File Definitions*PanelButtons*PushButton1(Close)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Solution Initialization*Table1*Frame9*PushButton1(Initialize)")(cx-gui-do cx-activate-item "Question*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Run Calculation"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Run Calculation"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Run Calculation"))')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Run Calculation*Table1*Table6(Solution Advancement)*Table1*PushButton1(Calculate)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")')
+Save(Overwrite=True)
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*FileMenu*Save Project")')
+setup1.SendCommand(Command="(cx-use-window-id 51)(cxg-clear-all-selections (cx-active-window))(cxg-add-surfaces-to-selection '(wall-solid) (cx-active-window))(cx-use-window-id 51)(cxg-clear-all-selections (cx-active-window))(cxg-add-surfaces-to-selection '(wall-solid) (cx-active-window))(cx-use-window-id 51)(cx-set-camera-relative '(-2.56334 -5.44324 1.84868) '(0 0 0) '(0.0768293 0.00634728 -0.00663817) 0 0)(cx-use-window-id 51)(cx-use-window-id 51)(cxg-clear-all-selections (cx-active-window))(cxg-add-surfaces-to-selection '(wall-solid) (cx-active-window))(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Results|Graphics|Contours|contour-2\"))(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Results|Graphics|Contours|contour-2\"))")
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours|contour-2"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Contours|contour-2"))')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Contours*Table1*Frame3*Frame2*List2(Surfaces)\" '( 0 2 4))(cx-gui-do cx-activate-item \"Contours*Table1*Frame3*Frame2*List2(Surfaces)\")(cx-gui-do cx-set-list-selections \"Contours*Table1*Frame3*Frame2*List2(Surfaces)\" '( 0 1 2 4))(cx-gui-do cx-activate-item \"Contours*Table1*Frame3*Frame2*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Contours*PanelButtons*PushButton1(OK)\")(cxg-clear-all-selections (cx-active-window))(cxg-add-surfaces-to-selection '() (cx-active-window))")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*FileMenu*Close Fluent")(cx-gui-do cx-activate-item "Settings have changed!*PanelButtons*PushButton1(OK)")')
+results1 = system1.GetContainer(ComponentName="Results")
+results1.Edit()
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.25, -0.5, 0
+    Scale = 0.556702
+    Pan = 0, 0
+    Rotation Quaternion = 0.279848, -0.364705, -0.115917, 0.880476
+    
+  END
+
+END
+
+VIEW:View 1
+  Light Angle = 50, 110
+END
+
+VIEW:View 2
+  Light Angle = 50, 110
+END
+
+VIEW:View 3
+  Light Angle = 50, 110
+END
+
+VIEW:View 4
+  Light Angle = 50, 110
+END
+
+> update
+# Sending visibility action from ViewUtilities
+>show /DATA READER/CASE:Case FFF/BOUNDARY:hull, view=/VIEW:View 1""")
+results1.SendCommand(Command="""# Sending visibility action from ViewUtilities
+>hide /DATA READER/CASE:Case FFF/BOUNDARY:hull, view=/VIEW:View 1""")
+results1.SendCommand(Command="> autolegend plot=/CONTOUR:Contour 1, view=VIEW:View 1")
+results1.SendCommand(Command="""CONTOUR:Contour 1
+Apply Instancing Transform = On
+Clip Contour = Off
+Colour Map = Default Colour Map
+Colour Scale = Linear
+Colour Variable = Pressure
+Colour Variable Boundary Values = Conservative
+Constant Contour Colour = Off
+Contour Range = Global
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = On
+Font = Sans Serif
+Fringe Fill = On
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Location List = symetry
+Max = 0.0 [Pa]
+Min = 0.0 [Pa]
+Number of Contours = 11
+Show Numbers = Off
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Text Colour = 0, 0, 0
+Text Colour Mode = Default
+Text Height = 0.024
+Transparency = 0.0
+Use Face Values = Off
+Value List = 0 [Pa],1 [Pa]
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""# Sending visibility action from ViewUtilities
+>show /CONTOUR:Contour 1, view=/VIEW:View 1""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.25, -0.5, 0
+    Scale = 0.556702
+    Pan = 0, 0
+    Rotation Quaternion = -0.629185, -0.190944, -0.23365, 0.716293
+    
+  END
+
+END
+
+> update
+CONTOUR:Contour 1
+Apply Instancing Transform = On
+Clip Contour = Off
+Colour Map = Default Colour Map
+Colour Scale = Linear
+Colour Variable = Phase2.Volume Fraction
+Colour Variable Boundary Values = Conservative
+Constant Contour Colour = Off
+Contour Range = Global
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = On
+Font = Sans Serif
+Fringe Fill = On
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Location List = symetry
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Show Numbers = Off
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Text Colour = 0, 0, 0
+Text Colour Mode = Default
+Text Height = 0.024
+Transparency = 0.0
+Use Face Values = Off
+Value List = 0,1
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.25, -0.5, 0
+    Scale = 0.556702
+    Pan = 0, 0
+    Rotation Quaternion = -0.349131, -0.446863, -0.506207, 0.649753
+    
+  END
+
+END
+
+> update
+        DATA READER:
+      CASE:Case FFF
+    DOMAIN:solid
+Angle Definition Method = Instances in 360
+Apply Reflection = On
+Apply Rotation = On
+Apply Translation = Off
+Axis = X
+Axis From File = Custom
+Full Circle = Off
+Instance Definition = From File
+Number of Copies = 1
+Number of Data Instances = 1
+Number of Passages in 360 = 1
+Number of Passages in Component = 1
+Principal Axis = Z
+Reflection Plane Option = ZX Plane
+Rotation Angle = 0 [degree]
+Rotation Axis From = 0 [m], 0 [m], 0 [m]
+Rotation Axis To = 1 [m], 0 [m], 0 [m]
+Rotation Axis Type = Principal Axis
+X = 0.0 [m]
+Y = 0.0 [m]
+Z = 0.0 [m]
+    END
+  END
+END""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.25, -0.5, 0
+    Scale = 0.556702
+    Pan = 0, 0
+    Rotation Quaternion = -0.550275, -0.254203, -0.392934, 0.691511
+    
+  END
+
+END
+
+> update
+        DATA READER:
+      CASE:Case FFF
+    DOMAIN:solid
+Angle Definition Method = Instances in 360
+Apply Reflection = On
+Apply Rotation = On
+Apply Translation = Off
+Axis = X
+Axis From File = Custom
+Full Circle = Off
+Instance Definition = From File
+Number of Copies = 1
+Number of Data Instances = 1
+Number of Passages in 360 = 1
+Number of Passages in Component = 1
+Principal Axis = Z
+Reflection Plane Option = ZX Plane
+Rotation Angle = 0 [degree]
+Rotation Axis From = 0 [m], 0 [m], 0 [m]
+Rotation Axis To = 1 [m], 0 [m], 0 [m]
+Rotation Axis Type = Principal Axis
+X = 0.0 [m]
+Y = 0.0 [m]
+Z = 0.0 [m]
+    END
+  END
+END""")
+results1.SendCommand(Command="> autolegend plot=/ISOSURFACE:Isosurface 1, view=VIEW:View 1")
+results1.SendCommand(Command="""ISOSURFACE:Isosurface 1
+Apply Instancing Transform = On
+Apply Texture = Off
+Blend Texture = On
+Colour = 0.75, 0.75, 0.75
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Phase2.Volume Fraction
+Colour Variable Boundary Values = Conservative
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = Off
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Range = Global
+Render Edge Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Texture Angle = 0
+Texture Direction = 0 , 1 , 0 
+Texture File =  
+Texture Material = Metal
+Texture Position = 0 , 0 
+Texture Scale = 1
+Texture Type = Predefined
+Tile Texture = Off
+Transform Texture = Off
+Transparency = 0.0
+Value = 0.0
+Variable = Phase2.Volume Fraction
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""# Sending visibility action from ViewUtilities
+>show /ISOSURFACE:Isosurface 1, view=/VIEW:View 1""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.25, -0.5, 0
+    Scale = 0.556702
+    Pan = 0, 0
+    Rotation Quaternion = -0.603122, -0.213646, -0.177916, 0.747635
+    
+  END
+
+END
+
+> update
+ISOSURFACE:Isosurface 1
+Apply Instancing Transform = On
+Apply Texture = Off
+Blend Texture = On
+Colour = 0.75, 0.75, 0.75
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Phase2.Volume Fraction
+Colour Variable Boundary Values = Conservative
+Culling Mode = No Culling
+Domain List = solid
+Draw Contours = Off
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Range = Global
+Render Edge Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Texture Angle = 0
+Texture Direction = 0 , 1 , 0 
+Texture File =  
+Texture Material = Metal
+Texture Position = 0 , 0 
+Texture Scale = 1
+Texture Type = Predefined
+Tile Texture = Off
+Transform Texture = Off
+Transparency = 0.0
+Value = 0.0
+Variable = Phase2.Volume Fraction
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""ISOSURFACE:Isosurface 1
+Apply Instancing Transform = On
+Apply Texture = Off
+Blend Texture = On
+Colour = 0.75, 0.75, 0.75
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Phase2.Volume Fraction
+Colour Variable Boundary Values = Conservative
+Culling Mode = No Culling
+Domain List = solid
+Draw Contours = Off
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Range = Global
+Render Edge Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Texture Angle = 0
+Texture Direction = 0 , 1 , 0 
+Texture File =  
+Texture Material = Metal
+Texture Position = 0 , 0 
+Texture Scale = 1
+Texture Type = Predefined
+Tile Texture = Off
+Transform Texture = Off
+Transparency = 0.0
+Value = 0.0
+Variable = Phase2.Volume Fraction
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""ISOSURFACE:Isosurface 1
+Apply Instancing Transform = On
+Apply Texture = Off
+Blend Texture = On
+Colour = 0.75, 0.75, 0.75
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Phase2.Volume Fraction
+Colour Variable Boundary Values = Conservative
+Culling Mode = No Culling
+Domain List = solid
+Draw Contours = Off
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Range = Global
+Render Edge Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Texture Angle = 0
+Texture Direction = 0 , 1 , 0 
+Texture File =  
+Texture Material = Metal
+Texture Position = 0 , 0 
+Texture Scale = 1
+Texture Type = Predefined
+Tile Texture = Off
+Transform Texture = Off
+Transparency = 0.0
+Value = 0.5
+Variable = Phase2.Volume Fraction
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.25, -0.5, 0
+    Scale = 0.556702
+    Pan = 0, 0
+    Rotation Quaternion = -0.635164, -0.203832, -0.28269, 0.689291
+    
+  END
+
+END
+
+> update
+ISOSURFACE:Isosurface 1
+Apply Instancing Transform = On
+Apply Texture = Off
+Blend Texture = On
+Colour = 0.75, 0.75, 0.75
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Phase2.Volume Fraction
+Colour Variable Boundary Values = Conservative
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = Off
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Range = Global
+Render Edge Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Texture Angle = 0
+Texture Direction = 0 , 1 , 0 
+Texture File =  
+Texture Material = Metal
+Texture Position = 0 , 0 
+Texture Scale = 1
+Texture Type = Predefined
+Tile Texture = Off
+Transform Texture = Off
+Transparency = 0.0
+Value = 0.5
+Variable = Phase2.Volume Fraction
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.25, -0.5, 0
+    Scale = 0.730441
+    Pan = 0, 0
+    Rotation Quaternion = -0.505858, -0.19936, -0.333682, 0.770091
+    
+  END
+
+END
+
+> update
+> autolegend plot=/VECTOR:Vector 1, view=VIEW:View 1""")
+results1.SendCommand(Command="> autolegend plot=/ISOSURFACE:Isosurface 1, view=VIEW:View 1")
+results1.SendCommand(Command="""ISOSURFACE:Isosurface 1
+Apply Instancing Transform = On
+Apply Texture = Off
+Blend Texture = On
+Colour = 0.0, 1.0, 1.0
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Phase2.Volume Fraction
+Colour Variable Boundary Values = Conservative
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = Off
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Range = Global
+Render Edge Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Texture Angle = 0
+Texture Direction = 0 , 1 , 0 
+Texture File =  
+Texture Material = Metal
+Texture Position = 0 , 0 
+Texture Scale = 1
+Texture Type = Predefined
+Tile Texture = Off
+Transform Texture = Off
+Transparency = 0.0
+Value = 0.5
+Variable = Phase2.Volume Fraction
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""ISOSURFACE:Isosurface 1
+Apply Instancing Transform = On
+Apply Texture = Off
+Blend Texture = On
+Colour = 0.0, 1.0, 1.0
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Phase2.Volume Fraction
+Colour Variable Boundary Values = Conservative
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = Off
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Range = Global
+Render Edge Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Texture Angle = 0
+Texture Direction = 0 , 1 , 0 
+Texture File =  
+Texture Material = Metal
+Texture Position = 0 , 0 
+Texture Scale = 1
+Texture Type = Predefined
+Tile Texture = Off
+Transform Texture = Off
+Transparency = 0.0
+Value = 0.5
+Variable = Phase2.Volume Fraction
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""ISOSURFACE:Isosurface 1
+Apply Instancing Transform = On
+Apply Texture = Off
+Blend Texture = On
+Colour = 0.2, 0.2, 1.0
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Phase2.Volume Fraction
+Colour Variable Boundary Values = Conservative
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = Off
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Range = Global
+Render Edge Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Texture Angle = 0
+Texture Direction = 0 , 1 , 0 
+Texture File =  
+Texture Material = Metal
+Texture Position = 0 , 0 
+Texture Scale = 1
+Texture Type = Predefined
+Tile Texture = Off
+Transform Texture = Off
+Transparency = 0.0
+Value = 0.5
+Variable = Phase2.Volume Fraction
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""ISOSURFACE:Isosurface 1
+Apply Instancing Transform = On
+Apply Texture = Off
+Blend Texture = On
+Colour = 0.2, 0.2, 1.0
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Phase2.Volume Fraction
+Colour Variable Boundary Values = Conservative
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = Off
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Range = Global
+Render Edge Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Texture Angle = 0
+Texture Direction = 0 , 1 , 0 
+Texture File =  
+Texture Material = Metal
+Texture Position = 0 , 0 
+Texture Scale = 1
+Texture Type = Predefined
+Tile Texture = Off
+Transform Texture = Off
+Transparency = 0.0
+Value = 0.5
+Variable = Phase2.Volume Fraction
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""# Sending visibility action from ViewUtilities
+>hide /ISOSURFACE:Isosurface 1, view=/VIEW:View 1""")
+results1.SendCommand(Command="""# Sending visibility action from ViewUtilities
+>show /ISOSURFACE:Isosurface 1, view=/VIEW:View 1""")
+results1.SendCommand(Command="""ISOSURFACE:Isosurface 1
+Apply Instancing Transform = On
+Apply Texture = Off
+Blend Texture = On
+Colour = 0.2, 0.2, 1.0
+Colour Map = Default Colour Map
+Colour Mode = Constant
+Colour Scale = Linear
+Colour Variable = Phase2.Volume Fraction
+Colour Variable Boundary Values = Conservative
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = Off
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Range = Global
+Render Edge Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Texture Angle = 0
+Texture Direction = 0 , 1 , 0 
+Texture File =  
+Texture Material = Metal
+Texture Position = 0 , 0 
+Texture Scale = 1
+Texture Type = Predefined
+Tile Texture = Off
+Transform Texture = Off
+Transparency = 0.0
+Value = 0.5
+Variable = Phase2.Volume Fraction
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="> autolegend plot=/VECTOR:Vector 1, view=VIEW:View 1")
+results1.SendCommand(Command="""VECTOR:Vector 1
+Apply Instancing Transform = On
+Colour = 0.75, 0.75, 0.75
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Velocity
+Colour Variable Boundary Values = Conservative
+Coord Frame = Global
+Culling Mode = No Culling
+Direction = X
+Domain List = /DOMAIN GROUP:All Domains
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Width = 1
+Location List = /ISOSURFACE:Isosurface 1
+Locator Sampling Method = Vertex
+Max = 0.0 [m s^-1]
+Maximum Number of Items = 100
+Min = 0.0 [m s^-1]
+Normalized = Off
+Number of Samples = 100
+Projection Type = None
+Random Seed = 1
+Range = Global
+Reduction Factor = 1.0
+Reduction or Max Number = Reduction
+Sample Spacing = 0.1
+Sampling Aspect Ratio = 1
+Sampling Grid Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Symbol = Line Arrow
+Symbol Size = 1.0
+Transparency = 0.0
+Variable = Velocity
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""# Sending visibility action from ViewUtilities
+>show /VECTOR:Vector 1, view=/VIEW:View 1""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.25, -0.5, 0
+    Scale = 0.730441
+    Pan = 0, 0
+    Rotation Quaternion = -0.488709, -0.318245, -0.417689, 0.696739
+    
+  END
+
+END
+
+> update
+VECTOR:Vector 1
+Apply Instancing Transform = On
+Colour = 0.75, 0.75, 0.75
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Velocity
+Colour Variable Boundary Values = Conservative
+Coord Frame = Global
+Culling Mode = No Culling
+Direction = X
+Domain List = /DOMAIN GROUP:All Domains
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Width = 1
+Location List = /ISOSURFACE:Isosurface 1
+Locator Sampling Method = Vertex
+Max = 0.0 [m s^-1]
+Maximum Number of Items = 100
+Min = 0.0 [m s^-1]
+Normalized = Off
+Number of Samples = 100
+Projection Type = None
+Random Seed = 1
+Range = Global
+Reduction Factor = 1.0
+Reduction or Max Number = Reduction
+Sample Spacing = 0.1
+Sampling Aspect Ratio = 1
+Sampling Grid Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Symbol = Line Arrow
+Symbol Size = 1.0
+Transparency = 0.0
+Variable = Velocity
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""VECTOR:Vector 1
+Apply Instancing Transform = On
+Colour = 0.75, 0.75, 0.75
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Velocity
+Colour Variable Boundary Values = Conservative
+Coord Frame = Global
+Culling Mode = No Culling
+Direction = X
+Domain List = /DOMAIN GROUP:All Domains
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Width = 1
+Location List = /ISOSURFACE:Isosurface 1
+Locator Sampling Method = Vertex
+Max = 0.0 [m s^-1]
+Maximum Number of Items = 100
+Min = 0.0 [m s^-1]
+Normalized = Off
+Number of Samples = 100
+Projection Type = None
+Random Seed = 1
+Range = Global
+Reduction Factor = 1.0
+Reduction or Max Number = Reduction
+Sample Spacing = 0.1
+Sampling Aspect Ratio = 1
+Sampling Grid Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Symbol = Arrowhead
+Symbol Size = 1.0
+Transparency = 0.0
+Variable = Velocity
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.25, -0.5, 0
+    Scale = 0.982362
+    Pan = 0, 0
+    Rotation Quaternion = -0.447449, -0.181197, -0.296406, 0.824093
+    
+  END
+
+END
+
+> update
+VECTOR:Vector 1
+Apply Instancing Transform = On
+Colour = 0.75, 0.75, 0.75
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Velocity
+Colour Variable Boundary Values = Conservative
+Coord Frame = Global
+Culling Mode = No Culling
+Direction = X
+Domain List = /DOMAIN GROUP:All Domains
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Width = 1
+Location List = /ISOSURFACE:Isosurface 1
+Locator Sampling Method = Vertex
+Max = 0.0 [m s^-1]
+Maximum Number of Items = 100
+Min = 0.0 [m s^-1]
+Normalized = Off
+Number of Samples = 100
+Projection Type = None
+Random Seed = 1
+Range = Global
+Reduction Factor = 1.0
+Reduction or Max Number = Reduction
+Sample Spacing = 0.1
+Sampling Aspect Ratio = 1
+Sampling Grid Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Symbol = Arrowhead3D
+Symbol Size = 1.0
+Transparency = 0.0
+Variable = Velocity
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""VIEW:View 1
+Camera Mode = User Specified
+CAMERA:
+Option = Pivot Point and Quaternion
+Pivot Point = 0.25, -0.5, 0
+Scale = 0.982362
+Pan = 0, 0
+Rotation Quaternion = -0.451334, -0.240082, -0.316908, 0.798911
+
+END
+
+END
+
+> update
+ANIMATION:ANIMATION
+QAnim MPEG Filename = C:/Users/akten/Documents/FFF.wmv
+QAnim Save MPEG = Off
+QAnim Looping = Bounce
+QAnim Looping Cycles = 1
+Video Format = wmv
+
+END""")
+results1.SendCommand(Command="""ANIMATION: ANIMATION
+QAnim Object List = /ISOSURFACE:Isosurface 1
+QAnim Frames = 46
+QAnim MPEG Filename = C:/Users/akten/Documents/FFF.wmv
+QAnim Save MPEG = Off
+QAnim Looping = Bounce
+QAnim Looping Cycles = 1
+Video Format = wmv
+END
+>animate quickAnimate""")
+results1.SendCommand(Command="""ANIMATION:ANIMATION
+QAnim MPEG Filename = C:/Users/akten/Documents/FFF.wmv
+QAnim Save MPEG = Off
+QAnim Looping = Loop
+QAnim Looping Cycles = 1
+Video Format = wmv
+
+END""")
+results1.SendCommand(Command="""ANIMATION: ANIMATION
+QAnim Object List = /ISOSURFACE:Isosurface 1
+QAnim Frames = 65
+QAnim MPEG Filename = C:/Users/akten/Documents/FFF.wmv
+QAnim Save MPEG = Off
+QAnim Looping = Loop
+QAnim Looping Cycles = 1
+Video Format = wmv
+END
+>animate quickAnimate""")
+results1.SendCommand(Command="""ANIMATION: ANIMATION
+QAnim Object List = /ISOSURFACE:Isosurface 1
+QAnim Frames = 37
+QAnim MPEG Filename = C:/Users/akten/Documents/FFF.wmv
+QAnim Save MPEG = Off
+QAnim Looping = Loop
+QAnim Looping Cycles = 1
+Video Format = wmv
+END
+>animate quickAnimate""")
+results1.SendCommand(Command="> autolegend plot=/STREAMLINE:Streamline 1, view=VIEW:View 1")
+results1.SendCommand(Command="""STREAMLINE:Streamline 1
+Absolute Tolerance = 0.0 [m]
+Apply Instancing Transform = On
+Colour = 0.75, 0.75, 0.75
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Velocity
+Colour Variable Boundary Values = Conservative
+Cross Periodics = On
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = Off
+Draw Faces = On
+Draw Lines = Off
+Draw Streams = On
+Draw Symbols = Off
+Grid Tolerance = 0.01
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Width = 1
+Location List = inlet
+Locator Sampling Method = Equally Spaced
+Max = 0.0 [m s^-1]
+Maximum Number of Items = 25
+Min = 0.0 [m s^-1]
+Number of Contours = 11
+Number of Samples = 25
+Number of Sides = 8
+Range = Global
+Reduction Factor = 1.0
+Reduction or Max Number = Max Number
+Sample Spacing = 0.1
+Sampling Aspect Ratio = 1
+Sampling Grid Angle = 0 [degree]
+Seed Point Type = Equally Spaced Samples
+Simplify Geometry = Off
+Specular Lighting = On
+Stream Drawing Mode = Line
+Stream Initial Direction = 0 , 0 , 0 
+Stream Size = 1.0
+Stream Symbol = Ball
+Streamline Direction = Forward
+Streamline Maximum Periods = 20
+Streamline Maximum Segments = 10000
+Streamline Maximum Time = 0.0 [s]
+Streamline Periodic Time Interval = -1 [s]
+Streamline Type = 3D Streamline
+Streamline Width = 2
+Surface Drawing = Smooth Shading
+Surface Streamline Direction = Forward and Backward
+Symbol Size = 1.0
+Symbol Start Time = 10.0 [s]
+Symbol Stop Time = -10.0 [s]
+Symbol Time Interval = 1.0 [s]
+Tolerance Mode = Grid Relative
+Transparency = 0.0
+Variable = Velocity
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""# Sending visibility action from ViewUtilities
+>show /STREAMLINE:Streamline 1, view=/VIEW:View 1""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.25, -0.5, 0
+    Scale = 0.75004
+    Pan = 0, 0
+    Rotation Quaternion = -0.586589, -0.335043, -0.271417, 0.685589
+    
+  END
+
+END
+
+> update
+# Sending visibility action from ViewUtilities
+>hide /STREAMLINE:Streamline 1, view=/VIEW:View 1""")
+results1.SendCommand(Command="> autolegend plot=/VECTOR:Vector 1, view=VIEW:View 1")
+results1.SendCommand(Command="""VECTOR:Vector 1
+Apply Instancing Transform = On
+Colour = 0.75, 0.75, 0.75
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Velocity
+Colour Variable Boundary Values = Conservative
+Coord Frame = Global
+Culling Mode = No Culling
+Direction = X
+Domain List = /DOMAIN GROUP:All Domains
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Width = 1
+Location List = /ISOSURFACE:Isosurface 1
+Locator Sampling Method = Vertex
+Max = 0.0 [m s^-1]
+Maximum Number of Items = 100
+Min = 0.0 [m s^-1]
+Normalized = Off
+Number of Samples = 100
+Projection Type = None
+Random Seed = 1
+Range = Global
+Reduction Factor = 10
+Reduction or Max Number = Reduction
+Sample Spacing = 0.1
+Sampling Aspect Ratio = 1
+Sampling Grid Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Symbol = Arrowhead3D
+Symbol Size = 1.0
+Transparency = 0.0
+Variable = Velocity
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.131172, 0.00076747, -0.221129
+    Scale = 0.75004
+    Pan = 0, 0
+    Rotation Quaternion = -0.522691, -0.339279, -0.256247, 0.738963
+    
+  END
+
+END
+
+> update
+> autolegend plot=/ISOSURFACE:Isosurface 1, view=VIEW:View 1""")
+results1.SendCommand(Command="""ISOSURFACE:Isosurface 1
+Apply Instancing Transform = On
+Apply Texture = Off
+Blend Texture = On
+Colour = 0.2, 0.2, 1.0
+Colour Map = Default Colour Map
+Colour Mode = Constant
+Colour Scale = Linear
+Colour Variable = Phase2.Volume Fraction
+Colour Variable Boundary Values = Conservative
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = Off
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Range = Global
+Render Edge Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Texture Angle = 0
+Texture Direction = 0 , 1 , 0 
+Texture File =  
+Texture Material = Metal
+Texture Position = 0 , 0 
+Texture Scale = 1
+Texture Type = Predefined
+Tile Texture = Off
+Transform Texture = Off
+Transparency = 0.0
+Value = 0.5 [m s^-1]
+Variable = Velocity
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.131172, 0.00076747, -0.221129
+    Scale = 0.600578
+    Pan = 0, 0
+    Rotation Quaternion = -0.490383, -0.441716, -0.366844, 0.655655
+    
+  END
+
+END
+
+> update
+ISOSURFACE:Isosurface 1
+Apply Instancing Transform = On
+Apply Texture = Off
+Blend Texture = On
+Colour = 0.2, 0.2, 1.0
+Colour Map = Default Colour Map
+Colour Mode = Constant
+Colour Scale = Linear
+Colour Variable = Phase2.Volume Fraction
+Colour Variable Boundary Values = Conservative
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = Off
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Range = Global
+Render Edge Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Texture Angle = 0
+Texture Direction = 0 , 1 , 0 
+Texture File =  
+Texture Material = Metal
+Texture Position = 0 , 0 
+Texture Scale = 1
+Texture Type = Predefined
+Tile Texture = Off
+Transform Texture = Off
+Transparency = 0.0
+Value = 0.5
+Variable = Phase2.Volume Fraction
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""ISOSURFACE:Isosurface 1
+Apply Instancing Transform = On
+Apply Texture = Off
+Blend Texture = On
+Colour = 0.2, 0.2, 1.0
+Colour Map = Default Colour Map
+Colour Mode = Variable
+Colour Scale = Linear
+Colour Variable = Velocity
+Colour Variable Boundary Values = Conservative
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = Off
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Max = 0.0 [m s^-1]
+Min = 0.0 [m s^-1]
+Number of Contours = 11
+Range = Global
+Render Edge Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Texture Angle = 0
+Texture Direction = 0 , 1 , 0 
+Texture File =  
+Texture Material = Metal
+Texture Position = 0 , 0 
+Texture Scale = 1
+Texture Type = Predefined
+Tile Texture = Off
+Transform Texture = Off
+Transparency = 0.0
+Value = 0.5
+Variable = Phase2.Volume Fraction
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.131172, 0.00076747, -0.221129
+    Scale = 0.600578
+    Pan = 0, 0
+    Rotation Quaternion = -0.312874, -0.258249, -0.440156, 0.801081
+    
+  END
+
+END
+
+> update
+CALCULATOR:CALCULATOR
+  Axis = X
+  Case Name = Case FFF
+  Expression = Pressure
+  Fluid = All Fluids
+  Function = force
+  Location = hull
+END
+> calculate""")
+results1.SendCommand(Command="""CALCULATOR:CALCULATOR
+  Axis = X
+  Case Name = Case FFF
+  Expression = Pressure
+  Fluid = All Fluids
+  Function = force
+  Location = hull
+END""")
+results1.SendCommand(Command="""VIEW:View 1
+Camera Mode = User Specified
+CAMERA:
+Option = Pivot Point and Quaternion
+Pivot Point = 0.131172, 0.00076747, -0.221129
+Scale = 0.662926
+Pan = 0, 0
+Rotation Quaternion = -0.432441, -0.274423, -0.41001, 0.754738
+
+END
+
+END
+
+> update
+ANIMATION: ANIMATION
+QAnim Object List = /STREAMLINE:Streamline 1
+QAnim Frames = 37
+QAnim MPEG Filename = C:/Users/akten/Documents/FFF.wmv
+QAnim Save MPEG = Off
+QAnim Looping = Loop
+QAnim Looping Cycles = 1
+Video Format = wmv
+END
+>animate quickAnimate""")
+results1.SendCommand(Command="""ANIMATION: ANIMATION
+QAnim Object List = /ISOSURFACE:Isosurface 1
+QAnim Frames = 37
+QAnim MPEG Filename = C:/Users/akten/Documents/FFF.wmv
+QAnim Save MPEG = Off
+QAnim Looping = Loop
+QAnim Looping Cycles = 1
+Video Format = wmv
+END
+>animate quickAnimate""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.131172, 0.00076747, -0.221129
+    Scale = 0.787542
+    Pan = 0, 0
+    Rotation Quaternion = -0.468912, -0.367102, -0.378788, 0.708473
+    
+  END
+
+END
+
+> update
+# Sending visibility action from ViewUtilities
+>hide /CONTOUR:Contour 1, view=/VIEW:View 1""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.131172, 0.00076747, -0.221129
+    Scale = 0.787542
+    Pan = 0, 0
+    Rotation Quaternion = -0.545508, -0.24936, -0.263163, 0.755675
+    
+  END
+
+END
+
+> update
+# Sending visibility action from ViewUtilities
+>show /DATA READER/CASE:Case FFF/BOUNDARY:hull, view=/VIEW:View 1""")
+Save(Overwrite=True)
+results1.Exit()
+Save(Overwrite=True)
