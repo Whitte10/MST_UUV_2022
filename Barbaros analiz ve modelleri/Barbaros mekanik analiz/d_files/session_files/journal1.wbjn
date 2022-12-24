@@ -1,0 +1,117 @@
+# encoding: utf-8
+# 2022 R2
+SetScriptVersion(Version="22.2.192")
+template1 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+system1 = template1.CreateSystem()
+favorites1 = EngData.LoadFavoriteItems()
+library1 = EngData.OpenLibrary(
+    Name="General Materials",
+    Source="General_Materials.xml")
+library2 = EngData.OpenLibrary(
+    Name="Composite Materials",
+    Source="Composite_Materials.xml")
+EngData.EnableFilter(Enable=False)
+EngData.EnableFilter()
+EngData.EnableFilter(Enable=False)
+EngData.EnableFilter()
+engineeringData1 = system1.GetContainer(ComponentName="Engineering Data")
+material1 = engineeringData1.GetMaterial(Name="Structural Steel")
+material1.SetSuppression(Suppressed=True)
+material1.Delete()
+EngData.EnableFilter(Enable=False)
+matl1 = engineeringData1.ImportMaterial(
+    Name="Epoxy E-Glass UD",
+    Source="Composite_Materials.xml")
+matl2 = engineeringData1.ImportMaterial(
+    Name="Epoxy E-Glass UD",
+    Source="Composite_Materials.xml")
+EngData.EnableFilter()
+matl2.Delete()
+geometry1 = system1.GetContainer(ComponentName="Geometry")
+geometry1.Edit()
+geometry1.Exit()
+template2 = GetTemplate(TemplateName="Geometry")
+system2 = template2.CreateSystem(
+    Position="Left",
+    RelativeTo=system1)
+template3 = GetTemplate(TemplateName="Mechanical Model")
+system3 = template3.CreateSystem(
+    Position="Left",
+    RelativeTo=system1)
+geometry2 = system2.GetContainer(ComponentName="Geometry")
+geometry2.Edit()
+Save(Overwrite=True)
+geometryComponent1 = system3.GetComponent(Name="Geometry")
+geometryComponent2 = system2.GetComponent(Name="Geometry")
+geometryComponent1.ReplaceWithShare(
+    TargetSystem=system3,
+    ComponentToShare=geometryComponent2,
+    SourceSystem=system2)
+modelComponent1 = system3.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model1 = system3.GetContainer(ComponentName="Model")
+model1.Edit()
+geometry2.Exit()
+system4 = template2.CreateSystem(
+    Position="Left",
+    RelativeTo=system2)
+system2.Delete()
+geometry3 = system4.GetContainer(ComponentName="Geometry")
+geometry3.Edit()
+model1.Exit()
+Save(Overwrite=True)
+geometry3.Exit()
+geometryComponent3 = system4.GetComponent(Name="Geometry")
+geometryComponent1.ReplaceWithShare(
+    TargetSystem=system3,
+    ComponentToShare=geometryComponent3,
+    SourceSystem=system4)
+modelComponent1.Refresh()
+model1.Edit()
+geometry3.Edit()
+Save(Overwrite=True)
+model1.Exit()
+Save(Overwrite=True)
+geometry3.Exit()
+modelComponent1.Refresh()
+model1.Edit()
+engineeringData2 = system3.GetContainer(ComponentName="Engineering Data")
+matl3 = engineeringData2.ImportMaterial(
+    Name="Epoxy E-Glass UD",
+    Source="Composite_Materials.xml")
+model1.Exit()
+Save(Overwrite=True)
+modelComponent1.Refresh()
+model1.Edit()
+Save(Overwrite=True)
+model1.Exit()
+geometryComponent4 = system1.GetComponent(Name="Geometry")
+modelComponent1.TransferData(TargetComponent=geometryComponent4)
+modelComponent1.Refresh()
+model1.Edit()
+Save(Overwrite=True)
+model1.Exit()
+modelComponent1.Update(AllDependencies=True)
+geometryComponent4.Update(AllDependencies=True)
+modelComponent2 = system1.GetComponent(Name="Model")
+modelComponent2.Update(AllDependencies=True)
+model2 = system1.GetContainer(ComponentName="Model")
+model2.Edit()
+Extensions.AddToDefaultExtensions(Id="4563255d-fb65-4d3b-98a3-5ca86b8e5d91")
+Extensions.LoadExtension(Id="4563255d-fb65-4d3b-98a3-5ca86b8e5d91")
+Extensions.RemoveFromDefaultExtensions(Id="4563255d-fb65-4d3b-98a3-5ca86b8e5d91")
+Extensions.UnloadExtension(Id="4563255d-fb65-4d3b-98a3-5ca86b8e5d91")
+Extensions.AddToDefaultExtensions(Id="4a217913-2035-4362-96b3-10d129d8ee46")
+Extensions.LoadExtension(Id="4a217913-2035-4362-96b3-10d129d8ee46")
+Extensions.AddToDefaultExtensions(Id="4563255d-fb65-4d3b-98a3-5ca86b8e5d91")
+Extensions.LoadExtension(Id="4563255d-fb65-4d3b-98a3-5ca86b8e5d91")
+Extensions.RemoveFromDefaultExtensions(Id="4a217913-2035-4362-96b3-10d129d8ee46")
+Extensions.UnloadExtension(Id="4a217913-2035-4362-96b3-10d129d8ee46")
+Extensions.AddToDefaultExtensions(Id="4a217913-2035-4362-96b3-10d129d8ee46")
+Extensions.LoadExtension(Id="4a217913-2035-4362-96b3-10d129d8ee46")
+Save(Overwrite=True)
+Update()
+Save(Overwrite=True)
+Save(Overwrite=True)
