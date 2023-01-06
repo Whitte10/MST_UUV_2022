@@ -28,7 +28,7 @@ run the code
 ```bash
   python3 detect.py 
 ```
-
+Note:if you are in ubuntu specify main folder location on line 8
   
 ## Specifications
 

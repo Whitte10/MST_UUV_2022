@@ -22,12 +22,13 @@ install required packages
   pip install /r requirements.txt
 ```
 
+
 run the code
 
 ```bash
   python3 detect.py 
 ```
-
+Note:if you are in ubuntu speciffy main folder location on line 8
   
 ## Specifications
 
