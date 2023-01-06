@@ -5,6 +5,7 @@ from PIL import Image
 import os
 
 file_path = os.path.dirname(__file__)
+#file_path = directorypath #for ubuntu user you have to specify main directory path
 image_path = file_path+"\\resultimages\\"
 
 # Model yükle
