@@ -131,7 +131,7 @@ Boundary Conditions
          --------------------------------
          Open Channel               yes     
          Free Surface Level [m]     0.15    
-         Velocity Magnitude [m/s]   10      
+         Velocity Magnitude [m/s]   7       
          Bottom Level [m]           -0.75   
 
       inlet (phase-1)
